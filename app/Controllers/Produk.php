@@ -21,4 +21,12 @@ class Produk extends BaseController
         );
         return view("admin/v_produk", $data);
     }
+    public function ViewTambahProduk()
+    {
+        $data = array(
+            'title' => 'Admin',
+            'subtitle' => 'Produk',
+        );
+        return view("admin/v_produk",$data);
+    }
 }

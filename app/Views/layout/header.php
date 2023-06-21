@@ -131,7 +131,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('prodi'); ?>" class="nav-link">
+                <a href="<?php echo base_url('produk'); ?>" class="nav-link">
                   <p>Produk</p>
                 </a>
               </li>
