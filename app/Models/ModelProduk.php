@@ -22,6 +22,6 @@ class ModelProduk extends Model
     {
         $query = $this->db->table('produk')
             ->insert();
-        return $query
+        return $query;
     }
 }
