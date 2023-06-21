@@ -54,6 +54,7 @@ class Produk extends BaseController
     public function tambahProduk()
     {
         $data = array(
+            'id_produk' => $this->request->getVar('id_produk'),
             'nm_produk' => $this->request->getVar('nmProduk'),
             'id_supplier' => $this->request->getVar('supplier'),
             'deskripsi' => $this->request->getVar('deskripsi'),
