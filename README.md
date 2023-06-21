@@ -1,4 +1,4 @@
-# Applikasi Ini dibuat menggunakan CI4 dan tampilan menggunakan template ci4
+# Applikasi Ini dibuat menggunakan CI4 dan tampilan menggunakan template AdminLTE
 <p>anggota kelompok</p>
 <br>
 <ul>
@@ -7,4 +7,3 @@
 <li>Dimas Prasetyo</li>
 <li>Rizki Suryanto</li>
 </ul>
-
