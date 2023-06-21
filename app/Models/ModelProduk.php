@@ -11,5 +11,8 @@ class ModelProduk extends Model
     return $query->getResult();
  }
 
- 
+ public function getDataProdukById($idProduk) {
+    $query = $this->db->query("SELECT * FROM produk where id_produk = '$idProduk'");
+    return $query->getResult();
+ }
 }
