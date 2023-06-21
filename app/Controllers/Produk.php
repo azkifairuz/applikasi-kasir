@@ -3,11 +3,22 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-
+use App\Models\ModelProduk;
 class Produk extends BaseController
 {
+    private $produk = "";
+    public function __construct()
+    {
+        $this->produk = new ModelProduk;
+    }
     public function index()
     {
-        return view("admin/v_produk");
+        $produk = $this->produk->getDataProduk();
+        $data = array(
+            'title' => 'Admin',
+            'subtitle' => 'Produk',
+            'showData' => $produk,
+        );
+        return view("admin/v_produk", $data);
     }
 }
