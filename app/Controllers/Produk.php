@@ -37,7 +37,7 @@ class Produk extends BaseController
     {
         $satuan = $this->satuan->getDataSatuan();
         $kategori = $this->kategori->getDataKategori();
-        $supplier = $this->produk->getDataSupplier();
+        $supplier = $this->supplier->getDataSupplier();
 
         $data = array(
             'title' => 'Admin',
