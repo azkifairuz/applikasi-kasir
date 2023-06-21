@@ -1,4 +1,15 @@
-<?php echo view('layout/header'); ?>
+<?php echo view('layout/header');
+
+foreach ($currentId as $row) {   
+    $jumlahprodukSaatini = $row->jml;
+    $idPro = $jumlahprodukSaatini + 1;
+    if($idPro < 10){
+        $idProbaru = "0".$idPro;
+    }else{
+        $idProbaru = $idPro;
+    }
+}
+?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -19,7 +30,7 @@
   </section>
   <!-- Main content -->
   <section class="content">
-    <form name="tambahdata" method="POST" action="<?php echo base_url('user/tambahUser/') ?>">
+    <form name="tambahdata" method="POST" action="<?php echo base_url('produk/tambahProduk/') ?>">
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
@@ -33,6 +44,10 @@
               <!-- form start -->
 
               <div class="card-body">
+                <div class="form-group">
+                  <label>id produk</label>
+                  <input type="text" required value='<?php echo "PRO-$idProbaru" ?>' name="nmProduk" class="form-control">
+                </div>
                 <div class="form-group">
                   <label>Nama Produk</label>
                   <input type="text" name="nmProduk" class="form-control">
@@ -77,6 +92,14 @@
                     }
                     ?>
                   </select>
+                </div>
+                <div class="form-group">
+                  <label>harga_beli</label>
+                  <input type="number" name="harga_beli" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>harga_jual</label>
+                  <input type="number" name="harga_jual" class="form-control">
                 </div>
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
