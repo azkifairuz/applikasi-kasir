@@ -46,6 +46,6 @@ class Produk extends BaseController
             'satuans' => $satuan,
             'suppliers' => $supplier,
         );
-        return view("admin/v_produk",$data);
+        return view("admin/v_addProduk",$data);
     }
 }
