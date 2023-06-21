@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class ModelSupplier extends Model
 {
-    public function getDataSatuan(){
+    public function getDataSupplier(){
         $query = $this->db->query("SELECT * FROM supplier");
             return $query->getResult();
      }

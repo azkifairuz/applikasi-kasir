@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class ModelKategori extends Model
 {
-    public function getDataSatuan(){
+    public function getDataKategori(){
         $query = $this->db->query("SELECT * FROM kat_produk");
             return $query->getResult();
      }
