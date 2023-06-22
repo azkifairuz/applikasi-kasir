@@ -18,6 +18,13 @@ class ModelPegawai extends Model
 
         return $query->getResult();
     }
+    public function tambahPegawai($data)
+    {
+        $query = $this->db->table('pegawai')
+            ->insert($data);
+        return $query;
+    }
+
 
 
 }
