@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>
-  $title | $subtitle
+  <?php echo $title." | ".$subtitle?>
   </title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet"
@@ -114,7 +114,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item menu-open">
-              <a href="<?= base_url('dashboard'); ?>" class="nav-link">
+              <a href="<?= base_url('dasboard'); ?>" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
@@ -127,7 +127,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('Fakultas'); ?>" class="nav-link">
+                <a href="<?php echo base_url('pegawai'); ?>" class="nav-link">
                   <p>Pegawai</p>
                 </a>
               </li>
