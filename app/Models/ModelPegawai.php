@@ -24,7 +24,13 @@ class ModelPegawai extends Model
             ->insert($data);
         return $query;
     }
-
+    public function naikPangkat($data, $id)
+    {
+        $query = $this->db->table('pegawai')
+            ->where('id_pegawai', $id)
+            ->update($data);
+        return $query;
+    }
 
 
 }
