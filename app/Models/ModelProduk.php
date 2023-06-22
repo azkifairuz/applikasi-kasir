@@ -29,4 +29,12 @@ class ModelProduk extends Model
             ->insert($data);
         return $query;
     }
+    public function updateProduk($data,$id)
+    {
+        $query = $this->db->table('produk')
+        ->where('id_produk',$id)
+            ->update($data);
+        return $query;
+    }
+
 }
