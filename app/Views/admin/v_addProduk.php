@@ -46,7 +46,7 @@ foreach ($currentId as $row) {
               <div class="card-body">
                 <div class="form-group">
                   <label>id produk</label>
-                  <input type="text" required value='<?php echo "PRO-$idProbaru" ?>' name="idProduk" class="form-control">
+                  <input type="text" required readonly value='<?php echo "PRO-$idProbaru" ?>' name="idProduk" class="form-control">
                 </div>
                 <div class="form-group">
                   <label>Nama Produk</label>

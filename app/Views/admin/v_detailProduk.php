@@ -1,15 +1,4 @@
-<?php echo view('layout/header');
-
-foreach ($currentId as $row) {   
-    $jumlahprodukSaatini = $row->jml;
-    $idPro = $jumlahprodukSaatini + 1;
-    if($idPro < 10){
-        $idProbaru = "0".$idPro;
-    }else{
-        $idProbaru = $idPro;
-    }
-}
-?>
+<?php echo view('layout/header'); ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -29,8 +18,10 @@ foreach ($currentId as $row) {
     </div><!-- /.container-fluid -->
   </section>
   <!-- Main content -->
-  <section class="content">
-    <form name="tambahdata" method="POST" action="<?php echo base_url('produk/tambahProduk/') ?>">
+ <?php foreach ($produks as $produk ) {
+  ?>
+   <section class="content">
+    <form name="tambahdata" method="POST" action="<?php echo base_url('produk/updateProduk/') ?>">
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
@@ -38,7 +29,7 @@ foreach ($currentId as $row) {
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Tambah Produk</h3>
+                <h3 class="card-title">Update Produk</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -46,20 +37,20 @@ foreach ($currentId as $row) {
               <div class="card-body">
                 <div class="form-group">
                   <label>id produk</label>
-                  <input type="text" required value='<?php echo "PRO-$idProbaru" ?>' name="idProduk" class="form-control">
+                  <input type="text" required readonly value='<?php echo $produk->id_produk ?>' name="idProduk" class="form-control">
                 </div>
                 <div class="form-group">
                   <label>Nama Produk</label>
-                  <input type="text" name="nmProduk" class="form-control">
+                  <input type="text" value="<?php echo $produk->nm_produk ?>" name="nmProduk" class="form-control">
                 </div>
                 <div class="form-group">
                   <label>stok</label>
-                  <input type="number" name="stok" class="form-control">
+                  <input type="number" value="<?php echo $produk->stok ?>" name="stok" class="form-control">
                 </div>
                 <div class="form-group">
                   <label>satuan</label>
                   <select name="satuan" id="" class="form-control">
-                    <option value="">-=pilih satuan=-</option>
+                    <option value="<?php echo $produk->id_satuan ?>">satuan saat ini = <?php echo $produk->nm_satuan ?></option>
                     <?php
                     foreach ($satuans as $satuan) {
                       echo '<option value="' . $satuan->id_satuan . '">' . $satuan->nm_satuan . '</option>';
@@ -70,7 +61,7 @@ foreach ($currentId as $row) {
                 <div class="form-group">
                   <label>kategori</label>
                   <select name="kategori" id="" class="form-control">
-                    <option value="">-=pilih kategori=-</option>
+                    <option value="<?php echo $produk->id_kategori ?>">kategori saat ini = <?php echo $produk->nm_kategori ?></option>
                     <?php
                     foreach ($kategories as $kategori) {
                       echo '<option value="' . $kategori->id_kategori . '">' . $kategori->nm_kategori . '</option>';
@@ -80,12 +71,12 @@ foreach ($currentId as $row) {
                 </div>
                 <div class="form-group">
                   <label>Deskripsi</label>
-                  <textarea type="text" name="deskripsi" class="form-control"></textarea>
+                  <textarea type="text" value="<?php echo $produk->deskripsi ?>" name="deskripsi" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
                   <label>supplier</label>
                   <select name="supplier" id="" class="form-control">
-                    <option value="">-=pilih supplier=-</option>
+                    <option value="<?php echo $produk->id_supplier ?>">supplier saat ini = <?php echo $produk->nm_supplier ?></option>
                     <?php
                     foreach ($suppliers as $supplier) {
                       echo '<option value="' . $supplier->id_supplier . '">' . $supplier->nm_supplier . '</option>';
@@ -95,11 +86,11 @@ foreach ($currentId as $row) {
                 </div>
                 <div class="form-group">
                   <label>harga_beli</label>
-                  <input type="number" name="harga_beli" class="form-control">
+                  <input type="number" value="<?php echo $produk->harga_beli ?>" name="harga_beli" class="form-control">
                 </div>
                 <div class="form-group">
                   <label>harga_jual</label>
-                  <input type="number" name="harga_jual" class="form-control">
+                  <input type="number" value="<?php echo $produk->harga_jual ?>" name="harga_jual" class="form-control">
                 </div>
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
@@ -112,6 +103,9 @@ foreach ($currentId as $row) {
 
     </form>
   </section>
+  
+  <?php
+ } ?>
 </div>
 
 
