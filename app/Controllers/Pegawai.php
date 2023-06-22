@@ -3,17 +3,23 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-
+use App\Models\ModelPegawai;
 class Pegawai extends BaseController
 {
+    private $pegawai = '' ;
+
+    public function __construct()
+    {
+        $this->pegawai = new ModelPegawai;
+    }
     public function index()
     {
-        $produk = $this->produk->getDataProduk();
+        $pegawai = $this->pegawai->getPegawai();
         $data = array(
             'title' => 'Admin',
-            'subtitle' => 'Produk',
-            'showData' => $produk,
+            'subtitle' => 'Pegawai',
+            'showData' => $pegawai,
         );
-        return view("admin/v_", $data);
+        return view("admin/v_pegawai", $data);
     }
 }
