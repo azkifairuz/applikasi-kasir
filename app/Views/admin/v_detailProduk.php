@@ -53,7 +53,9 @@
                     <option value="<?php echo $produk->id_satuan ?>">satuan saat ini = <?php echo $produk->nm_satuan ?></option>
                     <?php
                     foreach ($satuans as $satuan) {
+                      if ($satuan->id_satuan != $produk->id_satuan) {
                       echo '<option value="' . $satuan->id_satuan . '">' . $satuan->nm_satuan . '</option>';
+                      }
                     }
                     ?>
                   </select>
@@ -64,14 +66,17 @@
                     <option value="<?php echo $produk->id_kategori ?>">kategori saat ini = <?php echo $produk->nm_kategori ?></option>
                     <?php
                     foreach ($kategories as $kategori) {
-                      echo '<option value="' . $kategori->id_kategori . '">' . $kategori->nm_kategori . '</option>';
+                      if ($kategori->id_kategori != $produk->id_kategori) {
+                        echo '<option value="' . $kategori->id_kategori . '">' . $kategori->nm_kategori . '</option>';
+                        
+                      }
                     }
                     ?>
                   </select>
                 </div>
                 <div class="form-group">
                   <label>Deskripsi</label>
-                  <textarea type="text" value="<?php echo $produk->deskripsi ?>" name="deskripsi" class="form-control"></textarea>
+                  <textarea type="text" value="<?php echo $produk->deskripsi ?>" name="deskripsi" class="form-control"><?php echo $produk->deskripsi ?></textarea>
                 </div>
                 <div class="form-group">
                   <label>supplier</label>
@@ -79,7 +84,9 @@
                     <option value="<?php echo $produk->id_supplier ?>">supplier saat ini = <?php echo $produk->nm_supplier ?></option>
                     <?php
                     foreach ($suppliers as $supplier) {
+                     if ($supplier->id_supplier != $produk->id_supplier) {
                       echo '<option value="' . $supplier->id_supplier . '">' . $supplier->nm_supplier . '</option>';
+                     }
                     }
                     ?>
                   </select>

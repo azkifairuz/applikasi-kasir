@@ -51,6 +51,25 @@ class Produk extends BaseController
         return view("admin/v_addProduk", $data);
     }
 
+    public function detailProduk($idProduk)
+    {
+        $satuan = $this->satuan->getDataSatuan();
+        $kategori = $this->kategori->getDataKategori();
+        $supplier = $this->supplier->getDataSupplier();
+        $getCurrentId = $this->produk->getCurrentId();
+        $currentProduk = $this->produk->getDataProdukById($idProduk);
+        $data = array(
+            'title' => 'Admin',
+            'subtitle' => 'Produk',
+            'kategories' => $kategori,
+            'satuans' => $satuan,
+            'suppliers' => $supplier,
+            'currentId' => $getCurrentId,
+            'produks' => $currentProduk,
+        );
+        return view("admin/v_detailProduk", $data);
+    }
+    
     public function tambahProduk()
     {
         $data = array(
