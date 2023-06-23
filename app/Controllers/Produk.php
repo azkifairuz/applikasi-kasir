@@ -74,13 +74,13 @@ class Produk extends BaseController
     public function tambahProduk()
     {
         session();
-        $username = $_SESSION['sesid_user'];
+        $idPeg = $_SESSION['sesid_peg'];
         $nowDate = Time::now();
         ;
         $currentDate = $nowDate->toDateString();
         $randomNumber = (time() % 90000) + 10000;
         $data = array(
-            'id_produk' => $this->request->getVar('id_produk'),
+            'id_produk' => $this->request->getVar('idProduk'),
             'nm_produk' => $this->request->getVar('nmProduk'),
             'id_supplier' => $this->request->getVar('supplier'),
             'deskripsi' => $this->request->getVar('deskripsi'),
@@ -93,10 +93,10 @@ class Produk extends BaseController
         $bm = array(
             'no_faktur' => $randomNumber,
             'id_supplier' => $this->request->getVar('supplier'),
-            'id_produk' => $this->request->getVar('id_produk'),
+            'id_produk' => $this->request->getVar('idProduk'),
             'tgl_masuk' => $currentDate,
             'jml_barang' => $this->request->getVar('stok'),
-            'id_pegawai' => $username,
+            'id_pegawai' => $idPeg,
             'harga_beli' => $this->request->getVar('harga_beli'),
         );
 

@@ -122,8 +122,8 @@
               </a>
             </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('mahasiswa'); ?>" class="nav-link">
-                  <p>Customer</p>
+                <a href="<?php echo base_url('barangMasuk'); ?>" class="nav-link">
+                  <p>Barang Masuk</p>
                 </a>
               </li>
               <li class="nav-item">

@@ -48,19 +48,22 @@
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>nama produk</th>
-                    <th>stok</th>
-                    <th>satuan</th>
-                    <th>kategori</th>
-                    <th>deskripsi</th>
+                    <th>no faktur</th>
                     <th>supplier</th>
+                    <th>nama produk</th>
+                    <th>tanggal masuk</th>
+                    <th>jumlah barang masuk</th>
+                    <th>pegawai penerima barang</th>
                     <th>harga beli</th>
-                    <th>harga jual</th>
-                    <th class="text-center">aksi</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
+                  if (count($showData) == null) {
+                    ?>
+                    <td collspa="9"></td>
+                    <?php
+                  }
                   $no = 1;
                   foreach ($showData as $row):
                     ?>
@@ -69,35 +72,28 @@
                         <?php echo $no; ?>
                       </td>
                       <td>
-                        <?php echo $row->nm_produk; ?>
-                      </td>
-                      <td>
-                        <?php echo $row->stok; ?>
-                      </td>
-                      <td>
-                        <?php echo $row->nm_satuan; ?>
-                      </td>
-                      <td>
-                        <?php echo $row->nm_kategori; ?>
-                      </td>
-                      <td>
-                        <?php echo $row->deskripsi; ?>
+                        <?php echo $row->no_faktur; ?>
                       </td>
                       <td>
                         <?php echo $row->nm_supplier; ?>
                       </td>
                       <td>
-                        <?php echo $row->harga_beli; ?>
+                        <?php echo $row->nm_produk; ?>
                       </td>
                       <td>
-                        <?php echo $row->harga_jual; ?>
+                        <?php echo $row->tgl_masuk; ?>
                       </td>
-                      <td class="text-center">
-                        <a class="btn btn-success px-4 p-2"
-                          href="<?php echo base_url('produk/detailProduk/' . $row->id_produk); ?>">
-                          Edit
-                        </a>
+                      <td>
+                        <?php echo $row->jml_barang; ?>
                       </td>
+                      <td>
+                        <?php echo $row->nm_pegawai; ?>
+                      </td>
+                      <td>
+                        <?php echo $row->harga_beli; ?>
+                      </td>
+
+                     
                     </tr>
                     <?php $no++; endforeach; ?>
                 </tbody>

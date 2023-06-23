@@ -39,6 +39,7 @@ class Login extends BaseController
                 $dataSession = [
                     
                     'sesid_user'    => $data->id_users,
+                    'sesid_peg'    => $data->id_pegawai,
                     'username'    => $data->username,
                     'seslevel'      => $data->roles,
                     'logged_in'     => true,

@@ -12,10 +12,11 @@ class BarangMasuk extends BaseController
     }
     public function index()
     {
+
         $bMasuk = $this->bm->getDataBarangMasuk();
         $data = array(
             'title' => 'Admin',
-            'subtitle' => 'Produk',
+            'subtitle' => 'barang',
             'showData' => $bMasuk,
         );
         return view("admin/v_barangMasuk", $data);
