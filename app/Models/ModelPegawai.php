@@ -42,7 +42,11 @@ class ModelPegawai extends Model
         return $query;
     }
 
-    
+    public function getCurrentId()
+    {
+        $query = $this->db->query("SELECT COUNT(id_pegawai) as jml FROM pegawai");
+        return $query->getResult();
+    }
 
 
 }
