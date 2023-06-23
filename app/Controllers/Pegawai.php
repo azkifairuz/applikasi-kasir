@@ -22,7 +22,7 @@ class Pegawai extends BaseController
         );
         return view("admin/v_pegawai", $data);
     }
-    public function ViewTambahProduk()
+    public function FormTambahPegawai()
     {
 
         $getCurrentId = $this->pegawai->getCurrentId();
