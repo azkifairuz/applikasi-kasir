@@ -40,8 +40,8 @@
 
           <div class="card">
             <div class="card-header row d-flex justify-content-between w-100">
-              <h3 class="card-title col-10">data produk</h3>
-              <a href="produk/ViewTambahProduk" class="btn col-2 btn-primary">Tambah Produk</a>
+              <h3 class="card-title col-10">data pegawai</h3>
+              <a href="pegawai/FormTambahPegawai" class="btn col-2 btn-primary">Tambah Pegawai</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -49,14 +49,13 @@
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>nama produk</th>
-                    <th>stok</th>
-                    <th>satuan</th>
-                    <th>kategori</th>
-                    <th>deskripsi</th>
-                    <th>supplier</th>
-                    <th>harga beli</th>
-                    <th>harga jual</th>
+                    <th>nama</th>
+                    <th>email</th>
+                    <th>nomor telpon</th>
+                    <th>jenis kelamin</th>
+                    <th>tanggal lahir</th>
+                    <th>tempat lahir</th>
+                    <th>roles</th>
                     <th class="text-center">aksi</th>
                   </tr>
                 </thead>
@@ -70,32 +69,46 @@
                         <?php echo $no; ?>
                       </td>
                       <td>
-                        <?php echo $row->nm_produk; ?>
+                        <?php echo $row->nm_pegawai; ?>
                       </td>
                       <td>
-                        <?php echo $row->stok; ?>
+                        <?php echo $row->email; ?>
                       </td>
                       <td>
-                        <?php echo $row->nm_satuan; ?>
+                        <?php echo $row->no_telp; ?>
                       </td>
                       <td>
-                        <?php echo $row->nm_kategori; ?>
+                        <?php echo $row->jsn_kelamin; ?>
                       </td>
                       <td>
-                        <?php echo $row->deskripsi; ?>
+                        <?php echo $row->tgl_lahir; ?>
                       </td>
                       <td>
-                        <?php echo $row->nm_supplier; ?>
+                        <?php echo $row->tmp_lahir; ?>
                       </td>
                       <td>
-                        <?php echo $row->harga_beli; ?>
+                        <?php
+                        $posisi = '';
+                        $roles = $row->roles;
+                        if ($roles == 1) {
+                          $posisi = 'super admin';
+                          echo $posisi;
+                        }
+                        if ($roles == 2) {
+                          $posisi = 'admin gudang';
+                          echo $posisi;
+                        }
+                        if ($roles == 3) {
+                          $posisi = 'kasie';
+                          echo $posisi;
+                        }
+                        
+                        ?>
                       </td>
-                      <td>
-                        <?php echo $row->harga_jual; ?>
-                      </td>
+
                       <td class="text-center">
                         <a class="btn btn-success px-4 p-2"
-                          href="<?php echo base_url('produk/detailProduk/' . $row->id_produk); ?>">
+                          href="<?php echo base_url('pegawai/detailPegawai/' . $row->id_pegawai); ?>">
                           Edit
                         </a>
                       </td>

@@ -22,4 +22,15 @@ class Pegawai extends BaseController
         );
         return view("admin/v_pegawai", $data);
     }
+    public function ViewTambahProduk()
+    {
+
+        $getCurrentId = $this->pegawai->getCurrentId();
+        $data = array(
+            'title' => 'Admin',
+            'subtitle' => 'Produk',
+            'currentId' => $getCurrentId,
+        );
+        return view("admin/v_addProduk", $data);
+    }
 }

@@ -15,7 +15,7 @@ class Dasboard extends BaseController
             return redirect()->to('login');
         }else{
             $data = [
-                'title' => 'Transkip',
+                'title' => 'Kasir',
                 'subtitle' => 'Dasboard',
             ];           
             return view('v_dasboard',$data);
