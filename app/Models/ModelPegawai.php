@@ -24,15 +24,12 @@ class ModelPegawai extends Model
             ->insert($data);
         return $query;
     }
-    public function naikPangkat($data, $id)
+    public function daftarAkun($data)
     {
         $query = $this->db->table('users')
-            ->where('id_users', $id)
-            ->update($data);
+                          ->insert($data);
         return $query;
     }
-
-
     public function changePassword($idUser, $data)
     {
         $query = $this->db->table('users')
@@ -41,7 +38,6 @@ class ModelPegawai extends Model
 
         return $query;
     }
-
     public function getCurrentId()
     {
         $query = $this->db->query("SELECT COUNT(id_pegawai) as jml FROM pegawai");

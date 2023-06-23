@@ -33,4 +33,29 @@ class Pegawai extends BaseController
         );
         return view("admin/v_addPegawai", $data);
     }
+    public function save()
+    {
+        $data = array(
+            'id_pegawai' => $this->request->getVar('idPegawai'),
+            'nm_pegawai' => $this->request->getVar('nmPegawai'),
+            'email' => $this->request->getVar('email'),
+            'alamat' => $this->request->getVar('alamat'),
+            'no_telp' => $this->request->getVar('noTelp'),
+            'jsn_kelamin' => $this->request->getVar('jk'),
+            'tgl_lahir' => $this->request->getVar('tglLahir'),
+            'tmp_lahir' => $this->request->getVar('tmpLahir'),
+        );
+        $akun = array(
+            'id_users' => $this->request->getVar('idPegawai'),
+            'id_pegawai' => $this->request->getVar('idPegawai'),
+            'username' => $this->request->getVar('username'),
+            'password' => 'cepatganti',
+            'roles' => $this->request->getVar('roles'),
+        );
+
+        session()->setFlashdata('success', 'berhasil');
+        $this->pegawai->tambahPegawai($data);
+        $this->pegawai->daftarAkun($akun);
+        return redirect()->to('pegawai');
+    }
 }

@@ -30,7 +30,7 @@ foreach ($currentId as $row) {
   </section>
   <!-- Main content -->
   <section class="content">
-    <form name="tambahdata" method="POST" action="<?php echo base_url('pegawai/tambahPegawai/') ?>">
+    <form name="tambahdata" method="POST" action="<?php echo base_url('pegawai/save /') ?>">
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
@@ -53,12 +53,20 @@ foreach ($currentId as $row) {
                   <input type="text" name="nmPegawai" class="form-control">
                 </div>
                 <div class="form-group">
+                  <label>username</label>
+                  <input type="text" name="username" class="form-control">
+                </div>
+                <div class="form-group">
                   <label>email</label>
-                  <input type="number" name="email" class="form-control">
+                  <input type="email" name="email" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Alamat</label>
+                  <textarea type="text" name="alamat" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
                   <label>nomor telpon</label>
-                  <input type="number" name="noTelp" class="form-control">
+                  <input type="text" name="noTelp" class="form-control">
                 </div>
                 <div class="form-group">
                   <label>Jenis Kelamin</label>
@@ -74,10 +82,13 @@ foreach ($currentId as $row) {
                   <input type="date" name="tglLahir" class="form-control">
                 </div>
                 <div class="form-group">
+                  <label>Tempat Lahir</label>
+                  <textarea type="text" name="tmpLahir" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
                   <label>Roles</label>
                   <select name="roles" id="" class="form-control">
                     <option value="">-=Pilih Posisi=-</option>
-                    <option value="1">Super Admin</option>
                     <option value="2">Admin gudang</option>
                     <option value="3">kasir</option>
                   </select>
