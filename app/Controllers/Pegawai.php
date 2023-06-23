@@ -31,6 +31,6 @@ class Pegawai extends BaseController
             'subtitle' => 'Produk',
             'currentId' => $getCurrentId,
         );
-        return view("admin/v_addProduk", $data);
+        return view("admin/v_addPegawai", $data);
     }
 }
