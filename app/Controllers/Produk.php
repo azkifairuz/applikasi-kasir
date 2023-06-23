@@ -3,13 +3,12 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\ModelBarangMasuk;
 use App\Models\ModelKategori;
 use App\Models\ModelProduk;
 use App\Models\ModelSatuan;
 use App\Models\ModelSupplier;
-use App\Models\satuan;
-use App\Models\kategori;
-use App\Models\supplier;
+use CodeIgniter\I18n\Time;
 
 class Produk extends BaseController
 {
@@ -17,12 +16,14 @@ class Produk extends BaseController
     private $kategori = "";
     private $supplier = "";
     private $satuan = "";
+    private $bm = "";
     public function __construct()
     {
         $this->produk = new ModelProduk;
         $this->satuan = new ModelSatuan;
         $this->kategori = new ModelKategori;
         $this->supplier = new ModelSupplier;
+        $this->bm = new ModelBarangMasuk;
     }
     public function index()
     {
@@ -69,9 +70,15 @@ class Produk extends BaseController
         );
         return view("admin/v_detailProduk", $data);
     }
-    
+
     public function tambahProduk()
     {
+        session();
+        $username = $_SESSION['sesid_user'];
+        $nowDate = Time::now();
+        ;
+        $currentDate = $nowDate->toDateString();
+        $randomNumber = (time() % 90000) + 10000;
         $data = array(
             'id_produk' => $this->request->getVar('id_produk'),
             'nm_produk' => $this->request->getVar('nmProduk'),
@@ -83,16 +90,26 @@ class Produk extends BaseController
             'harga_beli' => $this->request->getVar('harga_beli'),
             'harga_jual' => $this->request->getVar('harga_jual'),
         );
+        $bm = array(
+            'no_faktur' => $randomNumber,
+            'id_supplier' => $this->request->getVar('supplier'),
+            'id_produk' => $this->request->getVar('id_produk'),
+            'tgl_masuk' => $currentDate,
+            'jml_barang' => $this->request->getVar('stok'),
+            'id_pegawai' => $username,
+            'harga_beli' => $this->request->getVar('harga_beli'),
+        );
 
         session()->setFlashdata('success', 'berhasil');
         $this->produk->addProduk($data);
+        $this->bm->addDataBarangMasuk($bm);
         return redirect()->to('produk');
     }
 
     public function updateProduk()
     {
-        $idProduk =  $this->request->getVar('idProduk');
-        
+        $idProduk = $this->request->getVar('idProduk');
+
         $data = array(
             'nm_produk' => $this->request->getVar('nmProduk'),
             'id_supplier' => $this->request->getVar('supplier'),
@@ -105,7 +122,7 @@ class Produk extends BaseController
         );
 
         session()->setFlashdata('success', 'berhasil');
-        $this->produk->updateProduk($data,$idProduk);
+        $this->produk->updateProduk($data, $idProduk);
         return redirect()->to('produk');
     }
 }
