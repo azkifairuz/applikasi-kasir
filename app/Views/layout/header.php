@@ -136,6 +136,11 @@
                   <p>Produk</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url('kategori'); ?>" class="nav-link">
+                  <p>Kategori</p>
+                </a>
+              </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
