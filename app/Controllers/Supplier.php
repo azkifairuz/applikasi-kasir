@@ -14,11 +14,11 @@ class Supplier extends BaseController
 
     public function index()
     {
-        $supplier = $this->supplier->getsupplier();
+        $sup = $this->supplier->getDataSupplier();
         $data = array(
             'title' => 'Admin',
             'subtitle' => 'Supplier',
-            'showData' => $supplier,
+            'showData' => $sup,
         );
         return view('v_supplier',$data);
     }
