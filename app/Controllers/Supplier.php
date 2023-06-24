@@ -20,7 +20,7 @@ class Supplier extends BaseController
             'subtitle' => 'Pegawai',
             'showData' => $pegawai,
         );
-        return view('v_supplier');
+        return view('v_supplier',$data);
     }
 
    
