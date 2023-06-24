@@ -40,7 +40,7 @@ class Supplier extends BaseController
             'title' => 'Admin',
             'subtitle' => 'supplier',
         );
-        return view("admin/v_addProduk", $data);
+        return view("admin/v_addSupplier", $data);
     }
 }
 
