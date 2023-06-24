@@ -22,7 +22,18 @@ class Supplier extends BaseController
         );
         return view('admin/v_supplier',$data);
     }
-
+    public function tambahSupplier()
+    {
+        $data = array(
+            'nm_supplier' => $this->request->getVar('nm_supplier'),
+            'alamat' => $this->request->getVar('alamat'),
+            'no_telp' => $this->request->getVar('No_telp'),
+            'email' => $this->request->getVar('email'),
+        );
+        session()->setFlashdata('success', 'berhasil');
+        $this->supplier->addSupplier($data);
+        return redirect()->to('supplier');
+    }
    
 }
 

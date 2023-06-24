@@ -10,4 +10,10 @@ class ModelSupplier extends Model
         $query = $this->db->query("SELECT * FROM supplier");
             return $query->getResult();
      }
+     public function addSupplier($data)
+    {
+        $query = $this->db->table('supplier')
+            ->insert($data);
+        return $query;
+    }
 }
