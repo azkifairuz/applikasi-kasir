@@ -141,6 +141,11 @@
                   <p>Kategori</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url('supplier'); ?>" class="nav-link">
+                  <p>Supplier</p>
+                </a>
+              </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
