@@ -41,7 +41,7 @@
           <div class="card">
             <div class="card-header row d-flex justify-content-between w-100">
               <h3 class="card-title col-10">kategori produk</h3>
-              <a href="kategori/ViewKategoriProduk" class="btn col-2 btn-primary">Tambah Kategorik</a>
+              <a href="kategori/ViewFormKategoriProduk" class="btn col-2 btn-primary">Tambah Kategori</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
