@@ -79,7 +79,7 @@
                       </td>
                       <td class="text-center">
                         <a class="btn btn-success px-4 p-2"
-                          href="<?php echo base_url('pegawai/detailPegawai/' . $row->id_pegawai); ?>">
+                          href="<?php echo base_url('pegawai/detailPegawai/' . $row->id_supplier); ?>">
                           Edit
                         </a>
                       </td>
