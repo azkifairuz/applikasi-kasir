@@ -17,8 +17,8 @@ class Supplier extends BaseController
         $supplier = $this->supplier->getsupplier();
         $data = array(
             'title' => 'Admin',
-            'subtitle' => 'Pegawai',
-            'showData' => $pegawai,
+            'subtitle' => 'Supplier',
+            'showData' => $supplier,
         );
         return view('v_supplier',$data);
     }
