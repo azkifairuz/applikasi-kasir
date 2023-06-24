@@ -34,6 +34,13 @@ class Supplier extends BaseController
         $this->supplier->addSupplier($data);
         return redirect()->to('supplier');
     }
-   
+    public function FormTambahSupplier()
+    {
+        $data = array(
+            'title' => 'Admin',
+            'subtitle' => 'supplier',
+        );
+        return view("admin/v_addProduk", $data);
+    }
 }
 
