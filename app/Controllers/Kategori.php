@@ -31,10 +31,10 @@ class Kategori extends BaseController
             'title' => 'Admin',
             'subtitle' => 'Produk',
         );
-        return view("admin/v_TambahKategori", $data);
+        return view("admin/v_addKategori", $data);
     }
 
-    public function tambahProduk()
+    public function tambahKategori()
     {
         session();
         $idPeg = $_SESSION['sesid_peg'];
@@ -45,14 +45,7 @@ class Kategori extends BaseController
         $data = array(
             'id_produk' => $this->request->getVar('idProduk'),
             'nm_produk' => $this->request->getVar('nmProduk'),
-            'id_supplier' => $this->request->getVar('supplier'),
-            'deskripsi' => $this->request->getVar('deskripsi'),
-            'stok' => $this->request->getVar('stok'),
-            'id_satuan' => $this->request->getVar('satuan'),
-            'id_kategori' => $this->request->getVar('kategori'),
-            'harga_beli' => $this->request->getVar('harga_beli'),
-            'harga_jual' => $this->request->getVar('harga_jual'),
-        );             
+        
 
         session()->setFlashdata('success', 'berhasil');
         $this->produk->addProduk($data);
