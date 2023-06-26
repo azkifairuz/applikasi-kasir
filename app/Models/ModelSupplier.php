@@ -24,4 +24,9 @@ class ModelSupplier extends Model
             ->update($data);
         return $query;
     }
+    public function getDataSupplierbyid($id)
+    {
+        $query = $this->db->query("SELECT * FROM supplier WHERE id_supplier = '$id' ");
+            return $query->getResult();
+     }
 }

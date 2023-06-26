@@ -18,7 +18,7 @@
     </div><!-- /.container-fluid -->
   </section>
   <!-- Main content -->
- <?php foreach ($produks as $produk ) {
+ <?php foreach ($suppliers as $supplier ) {
   ?>
    <section class="content">
     <form name="tambahdata" method="POST" action="<?php echo base_url('supplier/updateSupplier/') ?>">
@@ -37,19 +37,19 @@
               <div class="card-body">
                 <div class="form-group">
                   <label>id supplier</label>
-                  <input type="text" required readonly value='<?php echo $produk->id_supplier ?>' name="idsupplier" class="form-control">
+                  <input type="text" required readonly value='<?php echo $supplier->id_supplier ?>' name="idsupplier" class="form-control">
                 </div>
                 <div class="form-group">
                   <label>Nama supplier</label>
-                  <input type="text" value="<?php echo $produk->nm_supplier ?>" name="nmsupplier" class="form-control">
+                  <input type="text" value="<?php echo $supplier->nm_supplier ?>" name="nmsupplier" class="form-control">
                 </div>
                 <div class="form-group">
                   <label>alamat</label>
-                  <input type="number" value="<?php echo $produk->alamat ?>" name="alamat" class="form-control">
+                  <input type="number" value="<?php echo $supplier->alamat ?>" name="alamat" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label>nomor</label>
-                  <input type="number" value="<?php echo $produk->alamat ?>" name="alamat" class="form-control">
+                  <label>email</label>
+                  <input type="text" value="<?php echo $supplier->alamat ?>" name="email" class="form-control">
                 </div>
               </div>
                 <div class="card-footer">
