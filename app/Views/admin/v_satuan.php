@@ -41,7 +41,7 @@
           <div class="card">
             <div class="card-header row d-flex justify-content-between w-100">
               <h3 class="card-title col-10">Satuan</h3>
-              <a href="kategori/FormTambahKategori" class="btn col-2 btn-primary">Tambah Kategori</a>
+              <a href="satuan/FormTambahSatuan" class="btn col-2 btn-primary">Tambah Satuan</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -71,7 +71,7 @@
                       </td>
                       <td class="text-center">
                         <a class="btn btn-success px-4 p-2"
-                          href="<?php echo base_url('Satuan/DetailSatuan/' . $row->id_satuan); ?>">
+                          href="<?php echo base_url('Satuan/DetailSatuan/' . $row->id_satuan ); ?>">
                           Edit
                         </a>
                       </td>

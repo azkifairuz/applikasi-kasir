@@ -34,16 +34,16 @@ class Satuan extends BaseController
         return view("admin/v_addSatuan", $data);
     }
 
-    public function tambahKategori()
+    public function tambahSatuan()
     {
         session();
         $data = array(
-            'nm_Kategori' => $this->request->getVar('nmKategori'),
+            'nm_Satuan' => $this->request->getVar('nmSatuan'),
             'keterangan' => $this->request->getVar('keterangan'),
         
         );
         session()->setFlashdata('success', 'berhasil');
-        $this->modelKategori->addKategori($data);
-        return redirect()->to('kategori');
+        $this->modelSatuan->addSatuan($data);
+        return redirect()->to('satuan');
     }
 }
