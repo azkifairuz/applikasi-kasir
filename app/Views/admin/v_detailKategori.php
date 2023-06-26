@@ -42,7 +42,7 @@
               <div class="card-body">
                 <div class="form-group">
                   <label>nama kategori</label>
-                  <input type="text" required readonly value='<?php echo $kategori->nm_kategori ?>' name="nmKategori" class="form-control">
+                  <input type="text" required value='<?php echo $kategori->nm_kategori ?>' name="nmKategori" class="form-control">
                 </div>
                 <div class="form-group">
                   <label>keterangan</label>
