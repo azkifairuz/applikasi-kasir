@@ -16,4 +16,12 @@ class ModelSupplier extends Model
             ->insert($data);
         return $query;
     }
+
+    public function updatesupplier($data,$id)
+    {
+        $query = $this->db->table('supplier')
+        ->where('id_supplier',$id)
+            ->update($data);
+        return $query;
+    }
 }

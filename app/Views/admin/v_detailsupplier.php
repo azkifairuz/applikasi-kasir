@@ -48,32 +48,10 @@
                   <input type="number" value="<?php echo $produk->alamat ?>" name="alamat" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label>No telp</label>
-                  <select name="No telp" id="" class="form-control">
-                    <option value="<?php echo $produk->no_telp ?>">no telp saat ini = <?php echo $produk->no_telp ?></option>
-                    <?php
-                    foreach ($satuans as $satuan) {
-                      if ($satuan->id_supplier != $produk->id_satuan) {
-                      echo '<option value="' . $satuan->id_satuan . '">' . $satuan->nm_satuan . '</option>';
-                      }
-                    }
-                    ?>
-                  </select>
+                  <label>nomor</label>
+                  <input type="number" value="<?php echo $produk->alamat ?>" name="alamat" class="form-control">
                 </div>
-                <div class="form-group">
-                  <label>email</label>
-                  <select name="email" id="" class="form-control">
-                    <option value="<?php echo $produk->id_kategori ?>">email saat ini = <?php echo $produk->email ?></option>
-                    <?php
-                    foreach ($kategories as $kategori) {
-                      if ($kategori->id_kategori != $produk->id_kategori) {
-                        echo '<option value="' . $kategori->id_kategori . '">' . $kategori->nm_kategori . '</option>';
-                        
-                      }
-                    }
-                    ?>
-                  </select>
-                </div>
+              </div>
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
