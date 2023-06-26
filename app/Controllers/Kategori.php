@@ -56,7 +56,7 @@ class Kategori extends BaseController
         );
 
         session()->setFlashdata('success', 'berhasil');
-        $this->modelKategori->updateProduk($data, $idKategori);
+        $this->modelKategori->updateKategori($data, $idKategori);
         return redirect()->to('kategori');
     }
 
@@ -65,10 +65,10 @@ class Kategori extends BaseController
         $kategori = $this->modelKategori->getDataKategoriById($idKategori);
         $data = array(
             'title' => 'Admin',
-            'subtitle' => 'Produk',
+            'subtitle' => 'Kategoris',
             'kategories' => $kategori,
         );
-        return view("admin/v_detailProduk", $data);
+        return view("admin/v_detailKategori", $data);
     }
 
 }
