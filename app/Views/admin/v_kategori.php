@@ -71,7 +71,7 @@
                       </td>
                       <td class="text-center">
                         <a class="btn btn-success px-4 p-2"
-                          href="<?php echo base_url('Kategori/FormTambahKategori/' . $row->id_kategori); ?>">
+                          href="<?php echo base_url('Kategori/detailKategori/' . $row->id_kategori); ?>">
                           Edit
                         </a>
                       </td>
