@@ -42,5 +42,33 @@ class Supplier extends BaseController
         );
         return view("admin/v_addSupplier", $data);
     }
+
+    public function detailsupplier($idsupplier)
+
+    {
+       $sup = $this->supplier->getDataSupplierbyid($idsupplier);
+        $data = array(
+            'title' => 'Admin',
+            'subtitle' => 'Supplier',
+            'suppliers' => $sup
+        );
+        return view("admin/v_detailsupplier", $data);
+    }
+
+    public function updateProduk()
+    {
+        $idProduk = $this->request->getVar('idProduk');
+
+        $data = array(
+            'nm_produk' => $this->request->getVar('nmProduk'),
+            'id_supplier' => $this->request->getVar('supplier'),
+            'deskripsi' => $this->request->getVar('deskripsi'),
+            'stok' => $this->request->getVar('stok'),
+            'id_satuan' => $this->request->getVar('satuan'),
+            'id_kategori' => $this->request->getVar('kategori'),
+            'harga_beli' => $this->request->getVar('harga_beli'),
+            'harga_jual' => $this->request->getVar('harga_jual'),
+        );
 }
 
+}
