@@ -44,6 +44,6 @@ class Kategori extends BaseController
         );
         session()->setFlashdata('success', 'berhasil');
         $this->modelKategori->addKategori($data);
-        return redirect()->to('produk');
+        return redirect()->to('kategori');
     }
 }
