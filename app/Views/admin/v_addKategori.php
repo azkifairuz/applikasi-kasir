@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group">
                   <label>Keteramgan</label>
-                  <input type="text" name="Keterangan" class="form-control">
+                  <input type="text" name="keterangan" class="form-control">
                 </div>
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
