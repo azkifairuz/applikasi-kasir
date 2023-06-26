@@ -69,6 +69,9 @@ class Supplier extends BaseController
             'harga_beli' => $this->request->getVar('harga_beli'),
             'harga_jual' => $this->request->getVar('harga_jual'),
         );
+        session()->setFlashdata('success', 'berhasil');
+        $this->supplier->updatesupplier($data,$idProduk);
+        return redirect()->to('supplier');
 }
 
 }
