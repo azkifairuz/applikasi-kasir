@@ -26,7 +26,7 @@ class ModelProduk extends Model
     public function addProduk($data)
     {
         $query = $this->db->table('produk')
-            ->insert($data);
+            ->insert($data);==
         return $query;
     }
     public function updateProduk($data,$id)

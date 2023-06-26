@@ -25,42 +25,37 @@ class Kategori extends BaseController
         
     }
 
-    public function cekLogin()
+    public function FormTambahKategori()
     {
-        $username = $this->request->getPost('username');
-        $password = $this->request->getPost('password');
-        $where = [
-            'username' => $username,
-        ];
-        $getDataId = $this->modelLogin->getDataId($this->table,$where);
-
-        if($getDataId == null){
-            session()->setFlashdata('message', 'Username atau Password tidak ditemukan');
-            return redirect()->to('login');
-        }
-        foreach($getDataId as $data):    
-            if(password_verify($password,$data->password)){
-                $dataSession = [
-                    
-                    'sesid_user'    => $data->id_users,
-                    'sesid_peg'    => $data->id_pegawai,
-                    'username'    => $data->username,
-                    'seslevel'      => $data->roles,
-                    'logged_in'     => true,
-                ];
-                
-                $this->session->set($dataSession);
-                return redirect()->to('dasboard');
-            }else{
-                session()->setFlashdata('message', 'cek kembali Username atau Password anda');
-                return redirect()->to('login');
-            }
-        endforeach;
+        $data = array(
+            'title' => 'Admin',
+            'subtitle' => 'Produk',
+        );
+        return view("admin/v_TambahKategori", $data);
     }
 
-    public function logout()
+    public function tambahProduk()
     {
-        $this->session->destroy();
-        return view("v_login");
+        session();
+        $idPeg = $_SESSION['sesid_peg'];
+        $nowDate = Time::now();
+        ;
+        $currentDate = $nowDate->toDateString();
+        $randomNumber = (time() % 90000) + 10000;
+        $data = array(
+            'id_produk' => $this->request->getVar('idProduk'),
+            'nm_produk' => $this->request->getVar('nmProduk'),
+            'id_supplier' => $this->request->getVar('supplier'),
+            'deskripsi' => $this->request->getVar('deskripsi'),
+            'stok' => $this->request->getVar('stok'),
+            'id_satuan' => $this->request->getVar('satuan'),
+            'id_kategori' => $this->request->getVar('kategori'),
+            'harga_beli' => $this->request->getVar('harga_beli'),
+            'harga_jual' => $this->request->getVar('harga_jual'),
+        );             
+
+        session()->setFlashdata('success', 'berhasil');
+        $this->produk->addProduk($data);
+        return redirect()->to('produk');
     }
 }

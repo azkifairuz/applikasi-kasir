@@ -6,12 +6,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Kategori</h1>
+          <h1>Barang Keluar</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Kategori produk</li>
+            <li class="breadcrumb-item active">Data Barang</li>
           </ol>
         </div>
       </div>
@@ -40,8 +40,7 @@
 
           <div class="card">
             <div class="card-header row d-flex justify-content-between w-100">
-              <h3 class="card-title col-10">kategori produk</h3>
-              <a href="kategori/FormTambahKategori" class="btn col-2 btn-primary">Tambah Kategori</a>
+              <h3 class="card-title col-10">Barang Keluar</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -49,13 +48,22 @@
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>nama kategori</th>
-                    <th>keterangan</th>
-                    <th class="text-center">aksi</th>
+                    <th>no faktur</th>
+                    <th>tanggal masuk</th>
+                    <th>jumlah barang keluar</th>
+                    <th>pegawai penerima barang</th>
+                    <th>id_produk</th>
+                    <th>harga jual</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
+                  if (count($showData) == null) {
+                    ?>
+                    <td collspa="9"></td>
+                    <?php
+                  }
                   $no = 1;
                   foreach ($showData as $row):
                     ?>
@@ -64,17 +72,25 @@
                         <?php echo $no; ?>
                       </td>
                       <td>
-                        <?php echo $row->nm_kategori; ?>
+                        <?php echo $row->no_faktur; ?>
                       </td>
                       <td>
-                        <?php echo $row->keterangan; ?>
+                        <?php echo $row->tgl_keluar; ?>
                       </td>
-                      <td class="text-center">
-                        <a class="btn btn-success px-4 p-2"
-                          href="<?php echo base_url('Kategori/FormTambahKategori/' . $row->id_kategori); ?>">
-                          Edit
-                        </a>
+                      <td>
+                        <?php echo $row->jml_barang; ?>
                       </td>
+                      <td>
+                        <?php echo $row->id_pegawai; ?>
+                      </td>
+                      <td>
+                        <?php echo $row->id_produk; ?>
+                      </td>
+                      <td>
+                        <?php echo $row->harga_jual; ?>
+                      </td>
+
+                     
                     </tr>
                     <?php $no++; endforeach; ?>
                 </tbody>
