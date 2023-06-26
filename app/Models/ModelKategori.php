@@ -10,4 +10,11 @@ class ModelKategori extends Model
         $query = $this->db->query("SELECT * FROM kat_produk");
             return $query->getResult();
      }
+
+     public function addKategori($data)
+    {
+        $query = $this->db->table('kat_produk')
+            ->insert($data);
+        return $query;
+    }
 }

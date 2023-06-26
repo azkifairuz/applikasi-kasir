@@ -25,42 +25,25 @@ class Kategori extends BaseController
         
     }
 
-    public function cekLogin()
+    public function FormTambahKategori()
     {
-        $username = $this->request->getPost('username');
-        $password = $this->request->getPost('password');
-        $where = [
-            'username' => $username,
-        ];
-        $getDataId = $this->modelLogin->getDataId($this->table,$where);
-
-        if($getDataId == null){
-            session()->setFlashdata('message', 'Username atau Password tidak ditemukan');
-            return redirect()->to('login');
-        }
-        foreach($getDataId as $data):    
-            if(password_verify($password,$data->password)){
-                $dataSession = [
-                    
-                    'sesid_user'    => $data->id_users,
-                    'sesid_peg'    => $data->id_pegawai,
-                    'username'    => $data->username,
-                    'seslevel'      => $data->roles,
-                    'logged_in'     => true,
-                ];
-                
-                $this->session->set($dataSession);
-                return redirect()->to('dasboard');
-            }else{
-                session()->setFlashdata('message', 'cek kembali Username atau Password anda');
-                return redirect()->to('login');
-            }
-        endforeach;
+        $data = array(
+            'title' => 'Admin',
+            'subtitle' => 'Produk',
+        );
+        return view("admin/v_addKategori", $data);
     }
 
-    public function logout()
+    public function tambahKategori()
     {
-        $this->session->destroy();
-        return view("v_login");
+        session();
+        $data = array(
+            'nm_Kategori' => $this->request->getVar('nmKategori'),
+            'keterangan' => $this->request->getVar('keterangan'),
+        
+        );
+        session()->setFlashdata('success', 'berhasil');
+        $this->modelKategori->addKategori($data);
+        return redirect()->to('kategori');
     }
 }

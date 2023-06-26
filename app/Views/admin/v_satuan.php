@@ -6,12 +6,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Kategori</h1>
+          <h1>Satuan</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Kategori produk</li>
+            <li class="breadcrumb-item active">Satuan</li>
           </ol>
         </div>
       </div>
@@ -40,8 +40,8 @@
 
           <div class="card">
             <div class="card-header row d-flex justify-content-between w-100">
-              <h3 class="card-title col-10">kategori produk</h3>
-              <a href="kategori/FormTambahKategori" class="btn col-2 btn-primary">Tambah Kategori</a>
+              <h3 class="card-title col-10">Satuan</h3>
+              <a href="satuan/FormTambahSatuan" class="btn col-2 btn-primary">Tambah Satuan</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -49,7 +49,7 @@
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>nama kategori</th>
+                    <th>Tipe Satuan</th>
                     <th>keterangan</th>
                     <th class="text-center">aksi</th>
                   </tr>
@@ -64,14 +64,14 @@
                         <?php echo $no; ?>
                       </td>
                       <td>
-                        <?php echo $row->nm_kategori; ?>
+                        <?php echo $row->nm_satuan; ?>
                       </td>
                       <td>
                         <?php echo $row->keterangan; ?>
                       </td>
                       <td class="text-center">
                         <a class="btn btn-success px-4 p-2"
-                          href="<?php echo base_url('Kategori/FormTambahKategori/' . $row->id_kategori); ?>">
+                          href="<?php echo base_url('Satuan/DetailSatuan/' . $row->id_satuan ); ?>">
                           Edit
                         </a>
                       </td>
