@@ -23,7 +23,7 @@ class ModelKategori extends Model
         return $query;
     }
 
-    public function updateProduk($data,$id)
+    public function updateKategori($data,$id)
     {
         $query = $this->db->table('kat_produk')
         ->where('id_kategori',$id)
