@@ -37,18 +37,13 @@ class Kategori extends BaseController
     public function tambahKategori()
     {
         session();
-        $idPeg = $_SESSION['sesid_peg'];
-        $nowDate = Time::now();
-        ;
-        $currentDate = $nowDate->toDateString();
-        $randomNumber = (time() % 90000) + 10000;
         $data = array(
-            'id_produk' => $this->request->getVar('idProduk'),
-            'nm_produk' => $this->request->getVar('nmProduk'),
+            'nm_Kategori' => $this->request->getVar('nmKategori'),
+            'keterangan' => $this->request->getVar('keterangan'),
         
-
+        );
         session()->setFlashdata('success', 'berhasil');
-        $this->produk->addProduk($data);
+        $this->modelKategori->addKategori($data);
         return redirect()->to('produk');
     }
 }

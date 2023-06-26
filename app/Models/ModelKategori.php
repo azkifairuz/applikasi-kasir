@@ -11,7 +11,7 @@ class ModelKategori extends Model
             return $query->getResult();
      }
 
-     public function addProduk($data)
+     public function addKategori($data)
     {
         $query = $this->db->table('kat_produk')
             ->insert($data);
