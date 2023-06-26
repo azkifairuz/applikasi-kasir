@@ -37,20 +37,25 @@
               <div class="card-body">
                 <div class="form-group">
                   <label>id supplier</label>
-                  <input type="text" required readonly value='<?php echo $supplier->id_supplier ?>' name="idsupplier" class="form-control">
+                  <input type="hidden" required readonly value='<?php echo $supplier->id_supplier ?>' name="idSupplier" class="form-control">
                 </div>
                 <div class="form-group">
                   <label>Nama supplier</label>
-                  <input type="text" value="<?php echo $supplier->nm_supplier ?>" name="nmsupplier" class="form-control">
+                  <input type="text" value="<?php echo $supplier->nm_supplier ?>" name="nmSupplier" class="form-control">
                 </div>
                 <div class="form-group">
                   <label>alamat</label>
-                  <input type="number" value="<?php echo $supplier->alamat ?>" name="alamat" class="form-control">
+                  <textarea type="text" value="<?php echo $supplier->alamat ?>" name="alamat" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                  <label>Nomor Telpon</label>
+                  <input type="text" value="<?php echo $supplier->no_telp ?>" name="noTelp" class="form-control">
                 </div>
                 <div class="form-group">
                   <label>email</label>
-                  <input type="text" value="<?php echo $supplier->alamat ?>" name="email" class="form-control">
+                  <input type="text" value="<?php echo $supplier->email ?>" name="email" class="form-control">
                 </div>
+                
               </div>
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
