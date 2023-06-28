@@ -36,14 +36,39 @@ class Kategori extends BaseController
 
     public function tambahKategori()
     {
-        session();
-        $data = array(
-            'nm_Kategori' => $this->request->getVar('nmKategori'),
-            'keterangan' => $this->request->getVar('keterangan'),
         
+        $data = array(
+            'nm_kategori' => $this->request->getVar('nmKategori'),
+            'keterangan' => $this->request->getVar('keterangan'),
         );
         session()->setFlashdata('success', 'berhasil');
         $this->modelKategori->addKategori($data);
         return redirect()->to('kategori');
     }
+
+    public function updateKategori()
+    {
+        $idKategori = $this->request->getVar('idKategori');
+
+        $data = array(
+            'nm_kategori' => $this->request->getVar('nmKategori'),
+            'keterangan' => $this->request->getVar('keterangan'),
+        );
+
+        session()->setFlashdata('success', 'berhasil');
+        $this->modelKategori->updateKategori($data, $idKategori);
+        return redirect()->to('kategori');
+    }
+
+    public function detailKategori($idKategori)
+    {
+        $kategori = $this->modelKategori->getDataKategoriById($idKategori);
+        $data = array(
+            'title' => 'Admin',
+            'subtitle' => 'Kategoris',
+            'kategories' => $kategori,
+        );
+        return view("admin/v_detailKategori", $data);
+    }
+
 }

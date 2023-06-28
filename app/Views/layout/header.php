@@ -146,11 +146,6 @@
                   <p>Supplier</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url('satuan'); ?>" class="nav-link">
-                  <p>Satuan</p>
-                </a>
-              </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

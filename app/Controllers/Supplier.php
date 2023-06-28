@@ -57,6 +57,7 @@ class Supplier extends BaseController
 
     public function updateSupplier()
     {
+<<<<<<< HEAD
         $idsupplier = $this->request->getVar('idsupplier');
 
         $data = array(
@@ -65,7 +66,20 @@ class Supplier extends BaseController
             'alamat' => $this->request->getVar('alamat'),
             'no_telp' => $this->request->getVar('no telp'),
             'email' => $this->request->getVar('email'),
+=======
+        $idProduk = $this->request->getVar('idSupplier');
+
+        $data = array(
+            'nm_supplier' => $this->request->getVar('nmSupplier'),
+            'alamat' => $this->request->getVar('alamat'),
+            'no_telp' => $this->request->getVar('noTelp'),
+            'email' => $this->request->getVar('email'),
+
+>>>>>>> 1fd2cf1b00debe42b06ef88c342e6b08258bb34c
         );
+        session()->setFlashdata('success', 'berhasil');
+        $this->supplier->updatesupplier($data,$idProduk);
+        return redirect()->to('supplier');
 }
 
 }
