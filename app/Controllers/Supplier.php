@@ -55,19 +55,16 @@ class Supplier extends BaseController
         return view("admin/v_detailsupplier", $data);
     }
 
-    public function updateProduk()
+    public function updateSupplier()
     {
-        $idProduk = $this->request->getVar('idProduk');
+        $idsupplier = $this->request->getVar('idsupplier');
 
         $data = array(
-            'nm_produk' => $this->request->getVar('nmProduk'),
-            'id_supplier' => $this->request->getVar('supplier'),
-            'deskripsi' => $this->request->getVar('deskripsi'),
-            'stok' => $this->request->getVar('stok'),
-            'id_satuan' => $this->request->getVar('satuan'),
-            'id_kategori' => $this->request->getVar('kategori'),
-            'harga_beli' => $this->request->getVar('harga_beli'),
-            'harga_jual' => $this->request->getVar('harga_jual'),
+            'nm_supplier' => $this->request->getVar('nama supplier'),
+            'id_supplier' => $this->request->getVar('id supplier'),
+            'alamat' => $this->request->getVar('alamat'),
+            'no_telp' => $this->request->getVar('no telp'),
+            'email' => $this->request->getVar('email'),
         );
 }
 
