@@ -30,4 +30,10 @@ class ModelKategori extends Model
             ->update($data);
         return $query;
     }
+
+    public function deleteKategori($idkategori)
+    {
+        $query = $this->db->query("DELETE * FROM `kat_produk` WHERE id_kategori = '$idkategori' ");
+            return $query;
+    }
 }
