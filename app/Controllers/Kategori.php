@@ -71,9 +71,8 @@ class Kategori extends BaseController
         return view("admin/v_detailKategori", $data);
     }
 
-    public function deleteKategori()
+    public function deleteKategori($idKategori)
     {
-        $idKategori = $this->request->getVar('idKategori');
         $this->modelKategori->deleteKategori($idKategori);
         return redirect()->to('kategori');
     }
