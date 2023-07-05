@@ -50,9 +50,9 @@
                   <tr>
                     <th>No</th>
                     <th>nama Supplier</th>
-                    <th>alamat Supplier</th>
-                    <th>nomor telpon</th>
                     <th>email</th>
+                    <th>nomor telpon</th>
+                    <th>alamat Supplier</th>
                     <th class="text-center">aksi</th>
                   </tr>
                 </thead>
