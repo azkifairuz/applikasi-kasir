@@ -67,8 +67,13 @@ class Supplier extends BaseController
 
         );
         session()->setFlashdata('success', 'berhasil');
-        $this->supplier->updatesupplier($data,$idProduk);
+        $this->supplier->updatesupplier($data,$idSupplier);
         return redirect()->to('supplier');
 }
+public function deleteSupplier($idSupplier)
+    {
+        $this->modelSupplier->deleteSupplier($idSupplier);
+        return redirect()->to('Supplier');
+    }
 
 }
