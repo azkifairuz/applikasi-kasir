@@ -46,4 +46,36 @@ class Satuan extends BaseController
         $this->modelSatuan->addSatuan($data);
         return redirect()->to('satuan');
     }
+
+    public function updateSatuan()
+    {
+        $idSatuan = $this->request->getVar('idSatuan');
+
+        $data = array(
+            'nm_satuan' => $this->request->getVar('nmSatuan'),
+            'keterangan' => $this->request->getVar('keterangan'),
+        );
+
+        session()->setFlashdata('success', 'berhasil');
+        $this->modelSatuan->updateSatuan($data, $idSatuan);
+        return redirect()->to('satuan');
+    }
+
+    public function detailSatuan($idSatuan)
+    {
+        $satuan = $this->modelSatuan->getDataSatuanById($idSatuan);
+        $data = array(
+            'title' => 'Admin',
+            'subtitle' => 'Satuans',
+            'kategories' => $satuan,
+        );
+        return view("admin/v_detailSatuan", $data);
+    }
+
+    public function deleteSatuan($idSatuan)
+    {
+        $this->modelSatuan->deleteSatuan($idSatuan);
+        return redirect()->to('satuan');
+    }
+
 }
