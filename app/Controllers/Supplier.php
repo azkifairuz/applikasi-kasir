@@ -38,6 +38,7 @@ class Supplier extends BaseController
     {
         $data = array(
             'title' => 'Admin',
+
             'subtitle' => 'supplier',
         );
         return view("admin/v_addSupplier", $data);
@@ -57,7 +58,7 @@ class Supplier extends BaseController
 
     public function updateSupplier()
     {
-        $idProduk = $this->request->getVar('idSupplier');
+        $idSupplier = $this->request->getVar('idSupplier');
 
         $data = array(
             'nm_supplier' => $this->request->getVar('nmSupplier'),
@@ -72,8 +73,9 @@ class Supplier extends BaseController
 }
 public function deleteSupplier($idSupplier)
     {
-        $this->modelSupplier->deleteSupplier($idSupplier);
-        return redirect()->to('Supplier');
+        $this->supplier->deleteSupplier($idSupplier);
+        return redirect()->to('supplier');
     }
+
 
 }
