@@ -10,4 +10,11 @@ class ModelSatuan extends Model
     $query = $this->db->query("SELECT * FROM satuan");
         return $query->getResult();
  }
+
+ public function addSatuan($data)
+    {
+        $query = $this->db->table('satuan')
+            ->insert($data);
+        return $query;
+    }
 }
