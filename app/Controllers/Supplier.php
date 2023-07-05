@@ -73,8 +73,8 @@ class Supplier extends BaseController
 public function deleteSupplier($idSupplier)
     {
         $this->supplier->deleteSupplier($idSupplier);
-        return redirect()->to('Supplier');
+        return redirect()->to('supplier');
     }
 
-    
+
 }
