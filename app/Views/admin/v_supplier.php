@@ -83,7 +83,7 @@
                           Edit
                         </a>
                         <a class="btn btn-success px-4 p-2"
-                          href="<?php echo base_url('Kategori/delete/' . $row->id_supplier); ?>">
+                          href="<?php echo base_url('Suppllier/delete/' . $row->id_supplier); ?>">
                           Delete
                         </a>
                       </td>
