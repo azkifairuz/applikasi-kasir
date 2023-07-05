@@ -67,7 +67,7 @@ class Satuan extends BaseController
         $data = array(
             'title' => 'Admin',
             'subtitle' => 'Satuans',
-            'kategories' => $satuan,
+            'satuans' => $satuan,
         );
         return view("admin/v_detailSatuan", $data);
     }
