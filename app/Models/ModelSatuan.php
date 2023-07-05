@@ -16,13 +16,6 @@ class ModelSatuan extends Model
         return $query->getResult();
  }
 
- public function addSatuan($data)
-    {
-        $query = $this->db->table('satuan')
-            ->insert($data);
-        return $query;
-    }
-
     public function addSatuan($data)
     {
         $query = $this->db->table('satuan')
