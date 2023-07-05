@@ -74,6 +74,10 @@
                           href="<?php echo base_url('Satuan/DetailSatuan/' . $row->id_satuan ); ?>">
                           Edit
                         </a>
+                        <a class="btn btn-danger px-4 p-2"
+                          href="<?php echo base_url('Satuan/deleteSatuan/' . $row->id_satuan ); ?>">
+                          Delete
+                        </a>
                       </td>
                     </tr>
                     <?php $no++; endforeach; ?>
