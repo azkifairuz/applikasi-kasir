@@ -79,4 +79,3 @@ class Satuan extends BaseController
     }
 
 }
-
