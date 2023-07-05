@@ -33,7 +33,7 @@ class ModelKategori extends Model
 
     public function deleteKategori($idkategori)
     {
-        $query = $this->db->query("DELETE * FROM `kat_produk` WHERE id_kategori = '$idkategori' ");
+        $query = $this->db->query("DELETE * FROM `kat_produk` WHERE 'id_kategori' = '$idkategori' ");
             return $query;
     }
 }
