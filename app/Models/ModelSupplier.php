@@ -29,4 +29,10 @@ class ModelSupplier extends Model
         $query = $this->db->query("SELECT * FROM supplier WHERE id_supplier = '$id' ");
             return $query->getResult();
      }
+
+     public function deleteSupplier($id)
+    {
+        $query = $this->db->query("DELETE * FROM `supplier` WHERE id_supplier = '$id' ");
+            return $query;
+    }
 }

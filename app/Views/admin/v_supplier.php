@@ -82,6 +82,10 @@
                           href="<?php echo base_url('supplier/detailSupplier/' . $row->id_supplier); ?>">
                           Edit
                         </a>
+                        <a class="btn btn-success px-4 p-2"
+                          href="<?php echo base_url('Kategori/delete/' . $row->id_supplier); ?>">
+                          Delete
+                        </a>
                       </td>
                     </tr>
                     <?php $no++; endforeach; ?>
