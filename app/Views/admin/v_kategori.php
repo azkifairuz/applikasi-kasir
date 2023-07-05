@@ -74,7 +74,7 @@
                           href="<?php echo base_url('Kategori/detailKategori/' . $row->id_kategori); ?>">
                           Edit
                         </a>
-                        <a class="btn btn-danger px-4 p-2"
+                        <a class="btn btn-dangergi px-4 p-2"
                           href="<?php echo base_url('Kategori/deleteKategori/' . $row->id_kategori); ?>">
                           Delete
                         </a>
