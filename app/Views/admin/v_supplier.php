@@ -79,11 +79,11 @@
                       </td>
                       <td class="text-center">
                         <a class="btn btn-success px-4 p-2"
-                          href="<?php echo base_url('supplier/detailSupplier/' . $row->id_supplier); ?>">
+                          href="<?php echo base_url('suppllier/detailSuppliler/' . $row->id_supplier); ?>">
                           Edit
                         </a>
                         <a class="btn btn-success px-4 p-2"
-                          href="<?php echo base_url('suppllier/deleteSupplier/' . $row->id_supplier); ?>">
+                          href="<?php echo base_url('suppllier/deleteSuppllier/' . $row->id_supplier); ?>">
                           Delete
                         </a>
                       </td>
