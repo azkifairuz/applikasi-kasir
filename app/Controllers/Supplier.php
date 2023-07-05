@@ -76,4 +76,5 @@ public function deleteSupplier($idSupplier)
         return redirect()->to('Supplier');
     }
 
+    
 }
