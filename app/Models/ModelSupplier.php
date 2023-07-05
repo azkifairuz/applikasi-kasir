@@ -32,7 +32,7 @@ class ModelSupplier extends Model
 
      public function deleteSupplier($id)
     {
-        $query = $this->db->query("DELETE * FROM `supplier` WHERE id_supplier = '$id' ");
+        $query = $this->db->query("DELETE  FROM `supplier` WHERE id_supplier = '$id' ");
             return $query;
     }
 }
