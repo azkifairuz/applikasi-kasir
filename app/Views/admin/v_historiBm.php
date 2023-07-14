@@ -13,7 +13,7 @@
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?php echo base_url('barangKeluar') ?>">Table Produk</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo base_url('barangMasuk') ?>">Table Produk</a></li>
             <li class="breadcrumb-item active">Histori</li>
           </ol>
         </div>
@@ -22,7 +22,7 @@
   </section>
   <!-- Main content -->
   <section class="content row">
-    <form name="tambahdata" class="col" method="POST" action="<?php echo base_url('barangKeluar/getHistoriBk/') ?>">
+    <form name="tambahdata" class="col" method="POST" action="<?php echo base_url('barangMasuk/getHistoriBm/') ?>">
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
@@ -43,7 +43,7 @@
                     <?php
                     foreach ($listTgl as $item) {
                       
-                      echo '<option value="' . $item->tgl_keluar. '">' . $item->tgl_keluar. '</option>';
+                      echo '<option value="' . $item->tgl_masuk. '">' . $item->tgl_masuk. '</option>';
                     }
                     ?>
                   </select>
@@ -54,7 +54,7 @@
                     <option value="">-=pilih produk=-</option>
                     <?php
                     foreach ($listTgl as $item) {
-                      echo '<option value="' . $item->tgl_keluar . '">' . $item->tgl_keluar. '</option>';
+                      echo '<option value="' . $item->tgl_masuk . '">' . $item->tgl_masuk. '</option>';
                     }
                     ?>
                   </select>

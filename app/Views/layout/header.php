@@ -158,7 +158,12 @@
               </li>
               <li class="nav-item">
                 <a href="<?php echo base_url('barangKeluar/historiBk'); ?>" class="nav-link">
-                  <p>histori</p>
+                  <p>histori barang keluar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url('barangMasuk/historiBm'); ?>" class="nav-link">
+                  <p>histori barang masuk</p>
                 </a>
               </li>
           </ul>

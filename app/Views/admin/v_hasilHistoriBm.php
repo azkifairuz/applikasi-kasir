@@ -32,7 +32,7 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-            <form action="<?php echo base_url('barangKeluar/exportToExcel') ?>" method="post">
+            <form action="<?php echo base_url('barangMasuk/exportToExcel') ?>" method="post">
 
 
               <table id="example3" class="table table-bordered table-striped">
@@ -40,9 +40,12 @@
                   <tr>
                     <th>No</th>
                     <th>no faktur</th>
+                    <th>supplier</th>
                     <th>nama produk</th>
-                    <th>jumlah</th>
-                    <th>harga</th>
+                    <th>tanggal masuk</th>
+                    <th>jumlah barang masuk</th>
+                    <th>pegawai penerima barang</th>
+                    <th>harga beli</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -64,22 +67,29 @@
                         <?php echo $row->no_faktur; ?>
                       </td>
                       <td>
+                        <?php echo $row->nm_supplier; ?>
+                      </td>
+                      <td>
                         <?php echo $row->nm_produk; ?>
+                      </td>
+                      <td>
+                        <?php echo $row->tgl_masuk; ?>
                       </td>
                       <td>
                         <?php echo $row->jml_barang; ?>
                       </td>
                       <td>
-                        <?php echo $row->harga_jual; ?>
+                        <?php echo $row->nm_pegawai; ?>
+                      </td>
+                      <td>
+                        <?php echo $row->harga_beli; ?>
                       </td>
                     </tr>
 
                     <?php $no++; endforeach; ?>
 
                   </tr>
-                </tbody>
               </table>
-
               <button type="submit" name="submit" class="btn mt-2 col-2 btn-primary">Print</button>
             </form>
           </div>

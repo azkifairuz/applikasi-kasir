@@ -126,8 +126,8 @@ class BarangKeluar extends BaseController
     {
         $tglAwal = $this->request->getVar('tglAwal');
         $tglAkhir = $this->request->getVar('tglAkhir');
-        session()->set("tglAwal",$tglAwal);
-        session()->set("tglAkhir",$tglAkhir);
+        session()->set("tglAwal", $tglAwal);
+        session()->set("tglAkhir", $tglAkhir);
         $histori = $this->bk->getHIstori($tglAwal, $tglAkhir);
         $data = array(
             'title' => 'Admin',
@@ -144,7 +144,7 @@ class BarangKeluar extends BaseController
     {
         session();
         $tglAwal = $_SESSION['tglAwal'];
-        $tglAkhir =  $_SESSION['tglAkhir'];
+        $tglAkhir = $_SESSION['tglAkhir'];
         $histori = $this->bk->getHIstori($tglAwal, $tglAkhir);
 
         // Menggunakan library PhpSpreadsheet
