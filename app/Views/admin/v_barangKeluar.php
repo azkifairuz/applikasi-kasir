@@ -41,6 +41,7 @@
           <div class="card">
             <div class="card-header row d-flex justify-content-between w-100">
               <h3 class="card-title col-10">Barang Keluar</h3>
+              <a href="barangKeluar/formTambahBk" class="btn col-2 btn-primary">Tambah Kategori</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -54,7 +55,7 @@
                     <th>pegawai penerima barang</th>
                     <th>id_produk</th>
                     <th>harga jual</th>
-                    <th></th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -81,16 +82,20 @@
                         <?php echo $row->jml_barang; ?>
                       </td>
                       <td>
-                        <?php echo $row->id_pegawai; ?>
+                        <?php echo $row->nm_pegawai; ?>
                       </td>
                       <td>
-                        <?php echo $row->id_produk; ?>
+                        <?php echo $row->nm_pegawai; ?>
                       </td>
                       <td>
                         <?php echo $row->harga_jual; ?>
                       </td>
-
-                     
+                      <td class="text-center">
+                        <a class="btn btn-danger px-4 p-2"
+                          href="<?php echo base_url('Kategori/deleteKategori/' . $row->id_stok_keluar); ?>">
+                          Delete
+                        </a>
+                      </td>
                     </tr>
                     <?php $no++; endforeach; ?>
                 </tbody>

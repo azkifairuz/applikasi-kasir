@@ -4,11 +4,16 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ModelBarangKeluar;
+use App\Models\ModelProduk;
+
 class BarangKeluar extends BaseController
 {
     private $bk = '';
-    public function __construct() {
+    private $prod = '';
+    public function __construct()
+    {
         $this->bk = new ModelBarangKeluar;
+        $this->prod = new ModelProduk;
     }
     public function index()
     {
@@ -21,26 +26,73 @@ class BarangKeluar extends BaseController
         );
         return view("admin/v_barangKeluar", $data);
     }
-
-    public function tambahBarangKeluar()
+    public function formTambahBk()
     {
-        
+        $produk = $this->prod->getDataProduk();
+        $idProduk = $this->request->getVar('produk');
+        $harga = $this->bk->getHargaBarangByid($idProduk);
+        $keranjang = $this->bk->getDataBarangBelum();
         $data = array(
-            'no_faktur' => $this->request->getVar('noFaktur'),
-            'tgl_keluar' => $this->request->getVar('tglKeluar'),
-            'jml_barang' => $this->request->getVar('jmlBarang'),
-            'id_pegawai' => $this->request->getVar('idPegawai'),
-            'id_produk' => $this->request->getVar('idProduk'),
-            'harga_jual' => $this->request->getVar('hargaJual'),
+            'title' => 'Kasir',
+            'subtitle' => 'Pemesanan',
+            'harga' => $harga,
+            'produks' => $produk,
+            'keranjang' => $keranjang,
+        );
+        return view("admin/v_addBarangKeluar", $data);
+    }
+    public function tambahKeranjang()
+    {
+        session();
+        $id = $this->request->getVar('idProduk');
+        $harga = $this->bk->getHargaBarangByid($id);
+        $lastFak = $this->bk->getStatus();
+        $status = "";
+        $noFaktur = 1;
+        $newFaktur = '';
+        $idPeg = $_SESSION['sesid_peg'];
+        foreach ($harga as $item) {
+            $harga_jual = $item->harga_jual;
+        }
+        foreach ($lastFak as $item1) {
+            $noFaktur = $item1->no_faktur;
+        }
+        $datacobas = $this->bk->getStatus();
+
+        foreach ($datacobas as $item2) {
+            $status = $item2->status;
+        }
+        if ($status == null) {
+            $newFaktur = 1;
+        } elseif ($status == "belum") {
+            $newFaktur = $noFaktur;
+        } elseif ($status == "sudah") {
+            $newFaktur = $noFaktur + 1;
+        }
+        // dd($status);
+
+        $data = array(
+            'no_faktur' => $newFaktur,
+            'jml_barang' => $this->request->getVar('qty'),
+            'id_produk' => $id,
+            'harga_jual' => $harga_jual,
+            'id_pegawai' => $idPeg
         );
         session()->setFlashdata('success', 'berhasil');
-        $this->ModelBarangKeluar->addDataBarangKeluar($data);
-        return redirect()->to('barangkeluar');
+        $this->bk->addDataBarangKeluar($data);
+        return redirect()->to('barangkeluar/formTambahBk');
+    }
+    public function updateStatus()
+    {
+        $id = $this->request->getVar('noFak');
+        $this->bk->updateStatus($id);
+        return redirect()->to('barangkeluar/formTambahBk');
     }
 
+    
     public function detailBarangKeluar($idKategori)
     {
-        $barangKeluar = $this->modelBarangKeluar->getBarangKeluarById($idKategori);
+        $barangKeluar = $this->bk->getBarangKeluarById($idKategori);
         $data = array(
             'title' => 'Admin',
             'subtitle' => 'Kategoris',
@@ -48,5 +100,5 @@ class BarangKeluar extends BaseController
         );
         return view("admin/v_detailKategori", $data);
     }
-  
+
 }

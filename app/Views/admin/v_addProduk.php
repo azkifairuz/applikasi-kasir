@@ -9,6 +9,11 @@ foreach ($currentId as $row) {
         $idProbaru = $idPro;
     }
 }
+if (isset($_POST['prosses'])) {
+  $name = htmlspecialchars($_POST['name']);
+  $query = "INSERT INTO `barang_keluar`(`name`, dan seterusnya) 
+  VALUES ('$name','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]')";
+}
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -30,7 +35,7 @@ foreach ($currentId as $row) {
   </section>
   <!-- Main content -->
   <section class="content">
-    <form name="tambahdata" method="POST" action="<?php echo base_url('produk/tambahProduk/') ?>">
+    <form name="tambahdata" method="POST" action="<?php echo base_url('produk/updateStatus/') ?>">
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->

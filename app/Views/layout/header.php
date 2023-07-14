@@ -151,6 +151,11 @@
                   <p>Satuan</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url('barangKeluar'); ?>" class="nav-link">
+                  <p>Barang Keluar</p>
+                </a>
+              </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
