@@ -92,7 +92,7 @@
                       </td>
                       <td class="text-center">
                         <a class="btn btn-danger px-4 p-2"
-                          href="<?php echo base_url('Kategori/deleteKategori/' . $row->id_stok_keluar); ?>">
+                          href="<?php echo base_url('barangKeluar/deleteBk/' . $row->id_stok_keluar); ?>">
                           Delete
                         </a>
                       </td>

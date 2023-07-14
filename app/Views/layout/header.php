@@ -156,6 +156,11 @@
                   <p>Barang Keluar</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url('barangKeluar/historiBk'); ?>" class="nav-link">
+                  <p>histori</p>
+                </a>
+              </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
