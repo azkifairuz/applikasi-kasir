@@ -49,7 +49,7 @@ class Pegawai extends BaseController
             'id_users' => $this->request->getVar('idPegawai'),
             'id_pegawai' => $this->request->getVar('idPegawai'),
             'username' => $this->request->getVar('username'),
-            'password' => 'cepatganti',
+            'password' =>  password_hash('cepatganti', PASSWORD_DEFAULT),
             'roles' => $this->request->getVar('roles'),
         );
 

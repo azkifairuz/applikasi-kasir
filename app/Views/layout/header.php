@@ -1,4 +1,9 @@
-
+<?php
+session();
+$idUser = $_SESSION['sesid_user'];
+$username = $_SESSION['username'];
+$roles = $_SESSION['seslevel'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,7 +74,7 @@
               <i class="fas fa-envelope mr-2"></i> 4 new messages
             </a>
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
+            <a href="<?php echo base_url('login/gantiPassword/' . $idUser); ?>" class="dropdown-item ">
               <i class="fas fa-users mr-2"></i> Ganti Password
             </a>
             <div class="dropdown-divider"></div>

@@ -99,7 +99,7 @@
                           echo $posisi;
                         }
                         if ($roles == 3) {
-                          $posisi = 'kasie';
+                          $posisi = 'kasir';
                           echo $posisi;
                         }
                         
@@ -108,8 +108,8 @@
 
                       <td class="text-center">
                         <a class="btn btn-success px-4 p-2"
-                          href="<?php echo base_url('pegawai/detailPegawai/' . $row->id_pegawai); ?>">
-                          Edit
+                          href="<?php echo base_url('login/resetPw/' . $row->id_pegawai); ?>">
+                          Reset Pw
                         </a>
                       </td>
                     </tr>
