@@ -9,7 +9,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Tambah pegawai</h1>
+          <h1>Tambah kategori</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -41,7 +41,7 @@
                   <input type="text" name="nmKategori" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label>Keteramgan</label>
+                  <label>Keterangan</label>
                   <input type="text" name="keterangan" class="form-control">
                 </div>
                 <div class="card-footer">

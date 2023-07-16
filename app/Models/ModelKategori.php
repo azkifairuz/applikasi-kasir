@@ -11,8 +11,8 @@ class ModelKategori extends Model
             return $query->getResult();
      }
 
-    public function getDataKategoriById($KataAzkiAnjing){
-        $query = $this->db->query("SELECT * FROM `kat_produk` WHERE id_kategori = '$KataAzkiAnjing' ");
+    public function getDataKategoriById($idKategori){
+        $query = $this->db->query("SELECT * FROM `kat_produk` WHERE id_kategori = '$idKategori' ");
             return $query->getResult();
      }
 
