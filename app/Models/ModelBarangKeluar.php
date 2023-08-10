@@ -32,6 +32,7 @@ class ModelBarangKeluar extends Model
         $builder = $this->db->query("UPDATE barang_keluar SET status='sudah',  tgl_keluar='$tanggalKeluar' WHERE no_faktur = '$id' ");
         return $builder;
     }
+
     public function getHIstori($tglPertama,$tglKedua)
     {
         $builder = $this->db->query("SELECT barang_keluar.id_stok_keluar, barang_keluar.no_faktur,barang_keluar.tgl_keluar,produk.harga_jual, produk.nm_produk, pegawai.nm_pegawai, barang_keluar.jml_barang FROM `barang_keluar` as barang_keluar INNER JOIN `produk` as produk ON barang_keluar.id_produk = produk.id_produk INNER JOIN `pegawai` AS pegawai ON barang_keluar.id_pegawai = pegawai.id_pegawai WHERE tgl_keluar BETWEEN '$tglPertama' AND '$tglKedua' ");

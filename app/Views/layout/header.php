@@ -11,7 +11,7 @@ $roles = $_SESSION['seslevel'];
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>
-  <?php echo $title." | ".$subtitle?>
+    <?php echo $title . " | " . $subtitle ?>
   </title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet"
@@ -82,7 +82,7 @@ $roles = $_SESSION['seslevel'];
               <i class="fas fa-sign-out mr-2"></i> Logout
             </a>
             <div class="dropdown-divider"></div>
-            
+
           </div>
         </li>
 
@@ -95,24 +95,42 @@ $roles = $_SESSION['seslevel'];
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <div class="col mt-3">
-        <img src="<?php echo base_url('assets/dist/img/AdminLTELogo.png'); ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: 0.8;  width: 30%; margin: 0 0 0 0;">
+        <img src="<?php echo base_url('assets/dist/img/AdminLTELogo.png'); ?>" alt="AdminLTE Logo"
+          class="brand-image img-circle elevation-3" style="opacity: 0.8;  width: 30%; margin: 0 0 0 0;">
       </div>
       <div class="col"><a href="index3.html" class="brand-link">Aplikasi Kasir</a></div>
 
-      
+
 
       <!-- Sidebar -->
       <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="info">
-            <a href="#" class="d-block">
-              username
+            <a href="#" class="d-block text-capitalize text-xl-center">
+              <?php
+              echo $username;
+
+              ?>
+
+            </a>
+            <a href="#" class="d-block text-capitalize text-xl-center">
+              <?php
+              if ($roles == 3) {
+                echo "kasir";
+              } else if ($roles == 2) {
+                echo "admin gudang";
+              } else {
+                echo "super admin";
+              }
+              ?>
+
+
             </a>
           </div>
         </div>
 
- 
+
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -126,14 +144,12 @@ $roles = $_SESSION['seslevel'];
                 </p>
               </a>
             </li>
+            <?php
+            if ($roles == 3) {
+              ?>
               <li class="nav-item">
-                <a href="<?php echo base_url('barangMasuk'); ?>" class="nav-link">
-                  <p>Barang Masuk</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url('pegawai'); ?>" class="nav-link">
-                  <p>Pegawai</p>
+                <a href="<?php echo base_url('barangKeluar/formTambahBk'); ?>" class="nav-link">
+                  <p>Pemesanan</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -141,36 +157,75 @@ $roles = $_SESSION['seslevel'];
                   <p>Produk</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url('kategori'); ?>" class="nav-link">
-                  <p>Kategori</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url('supplier'); ?>" class="nav-link">
-                  <p>Supplier</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url('satuan'); ?>" class="nav-link">
-                  <p>Satuan</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url('barangKeluar'); ?>" class="nav-link">
-                  <p>Barang Keluar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url('barangKeluar/historiBk'); ?>" class="nav-link">
-                  <p>histori barang keluar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url('barangMasuk/historiBm'); ?>" class="nav-link">
-                  <p>histori barang masuk</p>
-                </a>
-              </li>
+              <?php
+            } else if ($roles == 2) {
+              ?>
+                <li class="nav-item">
+                  <a href="<?php echo base_url('produk'); ?>" class="nav-link">
+                    <p>Produk</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?php echo base_url('satuan'); ?>" class="nav-link">
+                    <p>Satuan</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?php echo base_url('kategori'); ?>" class="nav-link">
+                    <p>Kategori</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?php echo base_url('supplier'); ?>" class="nav-link">
+                    <p>Supplier</p>
+                  </a>
+                </li>
+                <?php
+            } else {
+              ?>
+                <li class="nav-item">
+                  <a href="<?php echo base_url('barangMasuk'); ?>" class="nav-link">
+                    <p>Barang Masuk</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?php echo base_url('pegawai'); ?>" class="nav-link">
+                    <p>Pegawai</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?php echo base_url('kategori'); ?>" class="nav-link">
+                    <p>Kategori</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?php echo base_url('supplier'); ?>" class="nav-link">
+                    <p>Supplier</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?php echo base_url('satuan'); ?>" class="nav-link">
+                    <p>Satuan</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?php echo base_url('barangKeluar'); ?>" class="nav-link">
+                    <p>Barang Keluar</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?php echo base_url('barangKeluar/historiBk'); ?>" class="nav-link">
+                    <p>histori barang keluar</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?php echo base_url('barangMasuk/historiBm'); ?>" class="nav-link">
+                    <p>histori barang masuk</p>
+                  </a>
+                </li>
+                <?php
+            }
+            ?>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -1,4 +1,7 @@
-<?php echo view('layout/header'); ?>
+<?php echo view('layout/header');
+session();
+$roles = $_SESSION['seslevel'];
+?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -41,7 +44,13 @@
           <div class="card">
             <div class="card-header row d-flex justify-content-between w-100">
               <h3 class="card-title col-10">kategori produk</h3>
-              <a href="kategori/FormTambahKategori" class="btn col-2 btn-primary">Tambah Kategori</a>
+              <?php
+              if ($roles != 1) {
+                ?>
+                <a href="kategori/FormTambahKategori" class="btn col-2 btn-primary">Tambah Kategori</a>
+                <?php
+              }
+              ?>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -51,7 +60,13 @@
                     <th>No</th>
                     <th>nama kategori</th>
                     <th>keterangan</th>
-                    <th class="text-center">aksi</th>
+                    <?php
+                    if ($roles != 1) {
+                      ?>
+                      <th class="text-center">aksi</th>
+                      <?php
+                    }
+                    ?>
                   </tr>
                 </thead>
                 <tbody>
@@ -70,14 +85,21 @@
                         <?php echo $row->keterangan; ?>
                       </td>
                       <td class="text-center">
-                        <a class="btn btn-success px-4 p-2"
-                          href="<?php echo base_url('Kategori/detailKategori/' . $row->id_kategori); ?>">
-                          Edit
-                        </a>
-                        <a class="btn btn-danger px-4 p-2"
-                          href="<?php echo base_url('Kategori/deleteKategori/' . $row->id_kategori); ?>">
-                          Delete
-                        </a>
+                        <?php
+                        if ($roles != 1) {
+                          ?>
+                          <a class="btn btn-success px-4 p-2"
+                            href="<?php echo base_url('Kategori/detailKategori/' . $row->id_kategori); ?>">
+                            Edit
+                          </a>
+                          <a class="btn btn-danger px-4 p-2"
+                            href="<?php echo base_url('Kategori/deleteKategori/' . $row->id_kategori); ?>">
+                            Delete
+                          </a>
+                          <?php
+                        }
+                        ?>
+
                       </td>
                     </tr>
                     <?php $no++; endforeach; ?>

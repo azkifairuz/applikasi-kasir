@@ -1,4 +1,7 @@
-<?php echo view('layout/header'); ?>
+<?php echo view('layout/header');
+session();
+$roles = $_SESSION['seslevel'];
+?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -41,7 +44,13 @@
           <div class="card">
             <div class="card-header row d-flex justify-content-between w-100">
               <h3 class="card-title col-10">data produk</h3>
-              <a href="produk/ViewTambahProduk" class="btn col-2 btn-primary">Tambah Produk</a>
+              <?php
+              if ($roles != 3) {
+                ?>
+                <a href="produk/ViewTambahProduk" class="btn col-2 btn-primary">Tambah Produk</a>
+                <?php
+              }
+              ?>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -57,7 +66,13 @@
                     <th>supplier</th>
                     <th>harga beli</th>
                     <th>harga jual</th>
-                    <th class="text-center">aksi</th>
+                    <?php
+                    if ($roles != 3) {
+                      ?>
+                      <th class="text-center">aksi</th>
+                      <?php
+                    }
+                    ?>
                   </tr>
                 </thead>
                 <tbody>
@@ -94,10 +109,17 @@
                         <?php echo $row->harga_jual; ?>
                       </td>
                       <td class="text-center">
-                        <a class="btn btn-success px-4 p-2"
-                          href="<?php echo base_url('produk/detailProduk/' . $row->id_produk); ?>">
-                          Edit
-                        </a>
+                        <?php
+                        if ($roles != 3) {
+                          ?>
+                          <a class="btn btn-success px-4 p-2"
+                            href="<?php echo base_url('produk/detailProduk/' . $row->id_produk); ?>">
+                            Edit
+                          </a>
+                          <?php
+                        }
+                        ?>
+
                       </td>
                     </tr>
                     <?php $no++; endforeach; ?>

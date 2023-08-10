@@ -48,6 +48,12 @@ class BarangKeluar extends BaseController
         session();
         $id = $this->request->getVar('idProduk');
         $harga = $this->bk->getHargaBarangByid($id);
+        $getCurrentStok = $this->prod->getCurrentStok($id);
+        $qty = $this->request->getVar('qty');
+        foreach ($getCurrentStok as $row) {
+            $currentStok = $row->stok;
+        }
+        
         $lastFak = $this->bk->getStatus();
         $status = "";
         $noFaktur = 1;
@@ -72,16 +78,22 @@ class BarangKeluar extends BaseController
             $newFaktur = $noFaktur + 1;
         }
         // dd($status);
+        if ($currentStok < $qty) {
+            session()->setFlashdata('failed', 'stok keluar lebih banyak dari pada stok tersedia');  
+        }else{
+            $data = array(
+                'no_faktur' => $newFaktur,
+                'jml_barang' => $qty,
+                'id_produk' => $id,
+                'harga_jual' => $harga_jual,
+                'id_pegawai' => $idPeg
+            );
 
-        $data = array(
-            'no_faktur' => $newFaktur,
-            'jml_barang' => $this->request->getVar('qty'),
-            'id_produk' => $id,
-            'harga_jual' => $harga_jual,
-            'id_pegawai' => $idPeg
-        );
-        session()->setFlashdata('success', 'berhasil');
-        $this->bk->addDataBarangKeluar($data);
+            $hasil = $currentStok - $qty;
+            session()->setFlashdata('success', 'berhasil');
+            $this->bk->addDataBarangKeluar($data);
+            $this->prod->updateStok($id,$hasil);
+        }
         return redirect()->to('barangkeluar/formTambahBk');
     }
     public function updateStatus()
@@ -91,21 +103,10 @@ class BarangKeluar extends BaseController
         return redirect()->to('barangkeluar/formTambahBk');
     }
 
-
-    public function detailBarangKeluar($idKategori)
-    {
-        $barangKeluar = $this->bk->getBarangKeluarById($idKategori);
-        $data = array(
-            'title' => 'Admin',
-            'subtitle' => 'Kategoris',
-            'kategories' => $barangKeluar,
-        );
-        return view("admin/v_detailKategori", $data);
-    }
-
     public function deleteBk($idBk)
     {
         $this->bk->deleteBk($idBk);
+
         return redirect()->to('barangKeluar');
     }
     public function historiBk()
@@ -155,7 +156,7 @@ class BarangKeluar extends BaseController
         $sheet = $spreadsheet->getActiveSheet();
 
         // Menulis header kolom
-        $headerColumns = ['ID Stok Keluar', 'No. Faktur', 'Tanggal Keluar', 'Harga Jual', 'Nama Produk', 'Nama Pegawai', 'Jumlah Barang'];
+        $headerColumns = ['ID Stok Keluar', 'No. Faktur', 'Tanggal Keluar', 'Harga Jual', 'Nama Produk', 'Nama Pegawai', 'Jumlah Barang Keluar'];
         $columnIndex = 1;
         foreach ($headerColumns as $header) {
             $sheet->setCellValueByColumnAndRow($columnIndex, 1, $header);

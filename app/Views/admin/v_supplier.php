@@ -1,4 +1,8 @@
-<?php echo view('layout/header'); ?>
+<?php
+echo view('layout/header');
+session();
+$roles = $_SESSION['seslevel'];
+?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -41,7 +45,13 @@
           <div class="card">
             <div class="card-header row d-flex justify-content-between w-100">
               <h3 class="card-title col-10">data Supplier</h3>
-              <a href="supplier/FormTambahSupplier" class="btn col-2 btn-primary">Tambah Supplier</a>
+              <?php
+              if ($roles != 1) {
+                ?>
+                <a href="supplier/FormTambahSupplier" class="btn col-2 btn-primary">Tambah Supplier</a>
+                <?php
+              }
+              ?>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -53,7 +63,13 @@
                     <th>email</th>
                     <th>nomor telpon</th>
                     <th>alamat Supplier</th>
-                    <th class="text-center">aksi</th>
+                    <?php
+                    if ($roles != 1) {
+                      ?>
+                      <th class="text-center">aksi</th>
+                      <?php
+                    }
+                    ?>
                   </tr>
                 </thead>
                 <tbody>
@@ -77,16 +93,23 @@
                       <td>
                         <?php echo $row->alamat; ?>
                       </td>
-                      <td class="text-center">
-                        <a class="btn btn-success px-4 p-2"
-                          href="<?php echo base_url('supplier/detailSuppiler/' . $row->id_supplier); ?>">
-                          Edit
-                        </a>
-                        <a class="btn btn-success px-4 p-2"
-                          href="<?php echo base_url('supplier/deleteSupplier/' . $row->id_supplier); ?>">
-                          Delete
-                        </a>
-                      </td>
+                      <?php
+                      if ($roles != 1) {
+                        ?>
+                        <td class="text-center">
+                          <a class="btn btn-success px-4 p-2"
+                            href="<?php echo base_url('supplier/detailSuppiler/' . $row->id_supplier); ?>">
+                            Edit
+                          </a>
+                          <a class="btn btn-danger px-4 p-2"
+                            href="<?php echo base_url('supplier/deleteSupplier/' . $row->id_supplier); ?>">
+                            Delete
+                          </a>
+                        </td>
+                        <?php
+                      }
+                      ?>
+
                     </tr>
                     <?php $no++; endforeach; ?>
                 </tbody>

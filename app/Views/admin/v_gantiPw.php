@@ -1,5 +1,6 @@
 <?php echo view('layout/header');
-
+session();
+$idUser = $_SESSION['sesid_user']
 
 ?>
 <!-- Content Wrapper. Contains page content -->
@@ -22,7 +23,7 @@
   </section>
   <!-- Main content -->
   <section class="content">
-    <form name="tambahdata" method="POST" action="<?php echo base_url('Satuan/tambahSatuan') ?>">
+    <form name="tambahdata" method="POST" action="<?php echo base_url('login/savePw/'. $idUser) ?>">
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->

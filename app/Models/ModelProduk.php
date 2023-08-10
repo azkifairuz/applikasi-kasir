@@ -11,6 +11,16 @@ class ModelProduk extends Model
         $query = $this->db->query("SELECT a.id_produk, a.`nm_produk`,a.`stok`,a.`deskripsi`,a.`harga_beli`,a.`harga_jual`,b.nm_supplier,c.nm_satuan,d.nm_kategori FROM `produk` a INNER JOIN supplier b ON a.`id_supplier`= b.id_supplier INNER JOIN satuan c ON a.`id_satuan` = c.id_satuan INNER JOIN kat_produk d ON a.`id_kategori` = d.id_kategori ");
         return $query->getResult();
     }
+    public function updateStok($id,$stokBerkurang)
+    {
+        $query = $this->db->query("UPDATE `produk` SET `stok`='$stokBerkurang' WHERE id_produk = '$id' ");
+        return $query;
+    }
+    public function getCurrentStok($id)
+    {
+        $query = $this->db->query("SELECT stok FROM `produk` WHERE id_produk = '$id' ");
+        return $query->getResult();
+    }
 
     public function getDataProdukById($idProduk)
     {

@@ -7,6 +7,20 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="container-fluid">
+    <?php
+      if (session()->get('failed')) {
+        ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>
+            <?php echo session()->getFlashdata('failed'); ?>
+          </strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <?php
+      }
+      ?>
       <div class="row mb-2">
         <div class="col-sm-6">
           <h1>Pemesanan</h1>
@@ -36,13 +50,16 @@
               <!-- form start -->
 
               <div class="card-body">
+
                 <div class="form-group">
                   <label>Nama Produk</label>
                   <select name="idProduk" id="" class="form-control">
                     <option value="">-=pilih produk=-</option>
                     <?php
                     foreach ($produks as $produk) {
-                      echo '<option value="' . $produk->id_produk . '">' . $produk->nm_produk . '- Rp.' . number_format($produk->harga_jual) . '</option>';
+                      if ($produk->stok) {
+                        echo '<option value="' . $produk->id_produk . '">' . $produk->nm_produk . '- Rp.' . number_format($produk->harga_jual) . '</option>';                        
+                      }
                     }
                     ?>
                   </select>
@@ -73,6 +90,7 @@
           <div class="card-body">
             <form action="<?php echo base_url('barangKeluar/updateStatus') ?>" method="post">
               <table id="example3" class="table table-bordered table-striped">
+
                 <thead>
                   <tr>
                     <th>No</th>
@@ -116,8 +134,8 @@
                     } else {
                       echo $row->no_faktur;
                     } ?>">
+                  
                     <?php $no++; endforeach; ?>
-
                   </tr>
                 </tbody>
               </table>

@@ -42,8 +42,8 @@
                     <option value="">-=pilih produk=-</option>
                     <?php
                     foreach ($listTgl as $item) {
-                      
-                      echo '<option value="' . $item->tgl_keluar. '">' . $item->tgl_keluar. '</option>';
+
+                      echo '<option value="' . $item->tgl_keluar . '">' . $item->tgl_keluar . '</option>';
                     }
                     ?>
                   </select>
@@ -54,13 +54,13 @@
                     <option value="">-=pilih produk=-</option>
                     <?php
                     foreach ($listTgl as $item) {
-                      echo '<option value="' . $item->tgl_keluar . '">' . $item->tgl_keluar. '</option>';
+                      echo '<option value="' . $item->tgl_keluar . '">' . $item->tgl_keluar . '</option>';
                     }
                     ?>
                   </select>
                 </div>
 
-               
+
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>

@@ -40,9 +40,11 @@
                   <tr>
                     <th>No</th>
                     <th>no faktur</th>
+                    <th>tanggal masuk</th>
+                    <th>jumlah barang keluar</th>
+                    <th>kasir</th>
                     <th>nama produk</th>
-                    <th>jumlah</th>
-                    <th>harga</th>
+                    <th>harga jual</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -64,16 +66,23 @@
                         <?php echo $row->no_faktur; ?>
                       </td>
                       <td>
-                        <?php echo $row->nm_produk; ?>
+                        <?php echo $row->tgl_keluar; ?>
                       </td>
                       <td>
                         <?php echo $row->jml_barang; ?>
                       </td>
                       <td>
+                        <?php echo $row->nm_pegawai; ?>
+                      </td>
+                      <td>
+                        <?php echo $row->nm_produk; ?>
+                      </td>
+                      <td>
                         <?php echo $row->harga_jual; ?>
                       </td>
+       
                     </tr>
-
+                   
                     <?php $no++; endforeach; ?>
 
                   </tr>

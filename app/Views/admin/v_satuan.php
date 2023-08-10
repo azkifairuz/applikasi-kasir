@@ -1,4 +1,7 @@
-<?php echo view('layout/header'); ?>
+<?php echo view('layout/header');
+session();
+$roles = $_SESSION['seslevel'];
+?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -41,7 +44,13 @@
           <div class="card">
             <div class="card-header row d-flex justify-content-between w-100">
               <h3 class="card-title col-10">Satuan</h3>
-              <a href="satuan/FormTambahSatuan" class="btn col-2 btn-primary">Tambah Satuan</a>
+              <?php
+              if ($roles != 1) {
+                ?>
+                <a href="satuan/FormTambahSatuan" class="btn col-2 btn-primary">Tambah Satuan</a>
+                <?php
+              }
+              ?>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -51,7 +60,13 @@
                     <th>No</th>
                     <th>Tipe Satuan</th>
                     <th>keterangan</th>
-                    <th class="text-center">aksi</th>
+                    <?php
+                    if ($roles != 1) {
+                      ?>
+                      <th class="text-center">aksi</th>
+                      <?php
+                    }
+                    ?>
                   </tr>
                 </thead>
                 <tbody>
@@ -69,16 +84,23 @@
                       <td>
                         <?php echo $row->keterangan; ?>
                       </td>
-                      <td class="text-center">
-                        <a class="btn btn-success px-4 p-2"
-                          href="<?php echo base_url('Satuan/DetailSatuan/' . $row->id_satuan ); ?>">
-                          Edit
-                        </a>
-                        <a class="btn btn-danger px-4 p-2"
-                          href="<?php echo base_url('Satuan/deleteSatuan/' . $row->id_satuan ); ?>">
-                          Delete
-                        </a>
-                      </td>
+                      <?php
+                      if ($roles != 1) {
+                        ?>
+                        <td class="text-center">
+                          <a class="btn btn-success px-4 p-2"
+                            href="<?php echo base_url('Satuan/DetailSatuan/' . $row->id_satuan); ?>">
+                            Edit
+                          </a>
+                          <a class="btn btn-danger px-4 p-2"
+                            href="<?php echo base_url('Satuan/deleteSatuan/' . $row->id_satuan); ?>">
+                            Delete
+                          </a>
+                        </td>
+                        <?php
+                      }
+                      ?>
+
                     </tr>
                     <?php $no++; endforeach; ?>
                 </tbody>
